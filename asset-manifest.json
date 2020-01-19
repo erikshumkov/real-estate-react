@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/real-estate-react/static/css/main.446142ef.chunk.css",
+    "main.js": "/real-estate-react/static/js/main.4390ac4b.chunk.js",
+    "main.js.map": "/real-estate-react/static/js/main.4390ac4b.chunk.js.map",
+    "runtime-main.js": "/real-estate-react/static/js/runtime-main.b5ac8807.js",
+    "runtime-main.js.map": "/real-estate-react/static/js/runtime-main.b5ac8807.js.map",
+    "static/js/2.bb391ac7.chunk.js": "/real-estate-react/static/js/2.bb391ac7.chunk.js",
+    "static/js/2.bb391ac7.chunk.js.map": "/real-estate-react/static/js/2.bb391ac7.chunk.js.map",
+    "index.html": "/real-estate-react/index.html",
+    "precache-manifest.56593ffc221beafba5914e79f25e6103.js": "/real-estate-react/precache-manifest.56593ffc221beafba5914e79f25e6103.js",
+    "service-worker.js": "/real-estate-react/service-worker.js",
+    "static/css/main.446142ef.chunk.css.map": "/real-estate-react/static/css/main.446142ef.chunk.css.map",
+    "static/js/2.bb391ac7.chunk.js.LICENSE": "/real-estate-react/static/js/2.bb391ac7.chunk.js.LICENSE",
+    "static/media/apartment.jpg": "/real-estate-react/static/media/apartment.b297e4f5.jpg",
+    "static/media/apartment10.jpg": "/real-estate-react/static/media/apartment10.7d7f92f9.jpg",
+    "static/media/apartment11.jpg": "/real-estate-react/static/media/apartment11.26a8a009.jpg",
+    "static/media/apartment12.jpg": "/real-estate-react/static/media/apartment12.1aa170cd.jpg",
+    "static/media/apartment13.jpg": "/real-estate-react/static/media/apartment13.82d78c5a.jpg",
+    "static/media/apartment2.jpg": "/real-estate-react/static/media/apartment2.6eab7598.jpg",
+    "static/media/apartment3.jpg": "/real-estate-react/static/media/apartment3.e88a8628.jpg",
+    "static/media/apartment4.jpg": "/real-estate-react/static/media/apartment4.4374e65d.jpg",
+    "static/media/apartment5.jpg": "/real-estate-react/static/media/apartment5.0af07f82.jpg",
+    "static/media/apartment6.jpg": "/real-estate-react/static/media/apartment6.ca74f72a.jpg",
+    "static/media/apartment7.jpg": "/real-estate-react/static/media/apartment7.57676eab.jpg",
+    "static/media/apartment8.jpg": "/real-estate-react/static/media/apartment8.e85f71b6.jpg",
+    "static/media/apartment9.jpg": "/real-estate-react/static/media/apartment9.f7c06381.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b5ac8807.js",
+    "static/js/2.bb391ac7.chunk.js",
+    "static/css/main.446142ef.chunk.css",
+    "static/js/main.4390ac4b.chunk.js"
+  ]
+}
