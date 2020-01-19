@@ -1,0 +1,75 @@
+#footer {
+  padding: 3.5rem 0 6rem;
+  background: #eee;
+  .wrapper {
+    width: 1100px;
+    margin: 0 auto;
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 40%;
+      .footer-contact {
+        h2 {
+          padding-bottom: 15px;
+          border-bottom: 1px solid rgb(180, 180, 180);
+          max-width: 250px;
+          color: rgb(54, 54, 54);
+        }
+        ul {
+          font-family: 'Roboto Slab', serif;
+          margin: 1rem 0 0 0;
+          li {
+            list-style-type: none;
+            margin: 5px 0;
+            font-size: 15px;
+          }
+        }
+      }
+      .footer-social {
+        h2 {
+          padding-bottom: 15px;
+          border-bottom: 1px solid rgb(180, 180, 180);
+          max-width: 250px;
+          color: rgb(54, 54, 54);
+        }
+        ul {
+          font-family: 'Roboto-Slab';
+          margin: 1rem 0 0 0;
+          color: #363636;
+          li {
+            display: inline-block;
+            list-style-type: none;
+            margin: 0 5px;
+            i {
+              margin-right: 10px;
+              font-size: 30px;
+              &.fa-facebook {
+                color: #3b5998;
+              }
+              &.fa-twitter-square {
+                color: #1da1f2;
+              }
+            }
+          }
+          li:first-of-type {
+            margin-left: 0;
+          }
+        }
+      }
+      .footer-about {
+        h2 {
+          padding-bottom: 15px;
+          border-bottom: 1px solid rgb(180, 180, 180);
+          margin-bottom: 15px;
+          max-width: 250px;
+          color: rgb(54, 54, 54);
+        }
+        p {
+          color: #363636;
+          line-height: 24px;
+          font-size: 15px;
+          font-family: 'Roboto Slab', serif;
+        }
+      }
+    }
+  }
+}
