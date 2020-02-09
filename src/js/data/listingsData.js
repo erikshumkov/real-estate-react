@@ -11,6 +11,14 @@ import apartment10 from '../../img/apartment10.jpg';
 import apartment11 from '../../img/apartment11.jpg';
 import apartment12 from '../../img/apartment12.jpg';
 import apartment13 from '../../img/apartment13.jpg';
+import apartment14 from '../../img/apartment14.jpg';
+import apartment15 from '../../img/apartment15.jpg';
+import apartment16 from '../../img/apartment16.jpg';
+import fritidshus from '../../img/fritidshus.jpg';
+import radhus from '../../img/radhus.jpg';
+import radhus2 from '../../img/radhus2.jpg';
+import radhus3 from '../../img/radhus3.jpg';
+import radhus4 from '../../img/radhus4.jpg';
 
 const listingsData = [
   {
@@ -155,6 +163,94 @@ const listingsData = [
     sqft: 180,
     homeType: 'fritidshus',
     image: apartment13
+  },
+  {
+    id: 14,
+    address: 'Pollarbacken 16',
+    city: 'Stockholm',
+    state: 'Stockholms län',
+    rooms: 4,
+    price: 6250000,
+    sqft: 90,
+    homeType: 'apartment',
+    image: apartment14
+  },
+  {
+    id: 15,
+    address: 'Örnstigen 10',
+    city: 'Göteborg',
+    state: 'Västra Götalands län',
+    rooms: 6,
+    price: 7500000,
+    sqft: 140,
+    homeType: 'fritidshus',
+    image: fritidshus
+  },
+  {
+    id: 16,
+    address: 'Lärdomsvägen 9',
+    city: 'Linköping',
+    state: 'Östergötlands län',
+    rooms: 5,
+    price: 4525000,
+    sqft: 142,
+    homeType: 'radhus',
+    image: radhus
+  },
+  {
+    id: 17,
+    address: 'Björnvägen 12',
+    city: 'Göteborg',
+    state: 'Västra Götalands län',
+    rooms: 4,
+    price: 3500000,
+    sqft: 136,
+    homeType: 'radhus',
+    image: radhus2
+  },
+  {
+    id: 18,
+    address: 'Gunnarbogatan 33',
+    city: 'Stockholm',
+    state: 'Stockholms län',
+    rooms: 6,
+    price: 9500000,
+    sqft: 158,
+    homeType: 'radhus',
+    image: radhus3
+  },
+  {
+    id: 19,
+    address: 'Atterbomsvägen 35',
+    city: 'Linköping',
+    state: 'Östergötlands län',
+    rooms: 6,
+    price: 2975000,
+    sqft: 125,
+    homeType: 'radhus',
+    image: radhus4
+  },
+  {
+    id: 20,
+    address: 'Bodalsgatan 3B',
+    city: 'Stockholm',
+    state: 'Stockholms län',
+    rooms: 1,
+    price: 2500000,
+    sqft: 35,
+    homeType: 'apartment',
+    image: apartment15
+  },
+  {
+    id: 21,
+    address: 'Kvarngatan 1',
+    city: 'Stockholm',
+    state: 'Stockholms län',
+    rooms: 1,
+    price: 3000000,
+    sqft: 35,
+    homeType: 'apartment',
+    image: apartment16
   }
 ];
 

@@ -14,15 +14,19 @@
     }
     select {
       margin-bottom: 22px;
-      padding: 18px 10px;
+      padding: 16.5px 10px;
       width: 200px;
       font-size: 1rem;
+      font-family: 'Roboto Slab', sans-serif;
     }
     .results-grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       grid-gap: 20px;
 
+      .result-link {
+        text-decoration: none;
+      }
       .result {
         display: flex;
         flex-direction: column;
@@ -80,16 +84,26 @@
       }
       .page-num {
         border: 1px solid lightgrey;
-        padding: 15px 20px;
+        padding: 15px 25px;
+        position: relative;
       }
       .page-btn {
-        border: 1px solid lightgrey;
         padding: 15px 20px;
-        background: #3880be;
-        color: #fff;
+        // background: #3880be;
+        color: grey;
         transition: 0.2s background ease-in-out;
-        &:hover {
-          background: #2e6799;
+        // &:hover {
+        //   background: #2e6799;
+        // }
+      }
+      .page-prev {
+        i {
+          margin-right: 8px;
+        }
+      }
+      .page-next {
+        i {
+          margin-left: 8px;
         }
       }
     }

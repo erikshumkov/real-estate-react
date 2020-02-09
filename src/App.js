@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
 // Data
 import listingsData from './js/data/listingsData';
 
 // Components
 import Header from './js/layout/Header';
-import FilterSection from './js/layout/FilterSection';
-import SearchResult from './js/layout/SearchResult';
 import Footer from './js/layout/Footer';
+import Home from './js/pages/Home';
+import Item from './js/pages/Item';
 
 function App() {
   const [filteredData, setFilteredData] = useState([]);
@@ -18,10 +23,22 @@ function App() {
     fritidshus: false
   });
   const [select, setSelect] = useState('newest');
+  const [selectRooms, setSelectRooms] = useState('all');
+  const [selectPrice, setSelectPrice] = useState('none');
   const [search, setSearch] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(9);
 
   const handleSelect = event => {
     setSelect(`${event}`);
+  };
+
+  const handleRooms = event => {
+    setSelectRooms(`${event}`);
+  };
+
+  const handlePrice = event => {
+    setSelectPrice(`${event}`);
   };
 
   const changeIt = event => {
@@ -70,15 +87,30 @@ function App() {
       newData = newData.sort((a, b) => b.price - a.price);
     }
 
+    if (selectRooms !== 'all') {
+      newData = newData.filter(item => {
+        let roomsNumber = parseInt(selectRooms);
+        return item.rooms >= roomsNumber ? item : null;
+      });
+    }
+
+    if (selectPrice !== 'none') {
+      newData = newData.filter(item => {
+        let highestPrice = parseInt(selectPrice);
+        return item.price <= highestPrice ? item : null;
+      });
+    }
+
     if (search !== '' && newData !== undefined) {
       newData = newData.filter(item => {
         let city = item.city.toLowerCase();
         let searchText = search.toLowerCase();
-        let n = city.match(searchText);
+        let matchStrings = city.match(searchText);
 
-        if (n !== null) {
+        if (matchStrings !== null) {
           return true;
         }
+        return null;
       });
     }
 
@@ -87,24 +119,64 @@ function App() {
 
   useEffect(() => {
     filterTheData();
-  }, [setting, select, search]);
+  }, [setting, select, search, selectRooms, selectPrice]);
+
+  // Get current posts
+  const lastPostIndex = currentPage * postsPerPage;
+  const firstPostIndex = lastPostIndex - postsPerPage;
+  const currentPosts = filteredData.slice(firstPostIndex, lastPostIndex);
+
+  // Change page
+  const changePage = pageNumber => {
+    if (pageNumber > 0 && pageNumber < 6) setCurrentPage(pageNumber);
+  };
 
   return (
-    <div className='App'>
-      <Header />
+    <Router>
+      <div className='App'>
+        <Header />
 
-      <FilterSection
-        changeIt={changeIt}
-        filter={setting}
-        searchString={searchString}
-        setSearch={setSearch}
-        search={search}
-      />
+        <Switch>
 
-      <SearchResult filteredData={filteredData} handleSelect={handleSelect} />
+          <Route
+            exact
+            path='/'
+            render={() => (
+              <div>
+                <Home changeIt={changeIt}
+                  filter={setting}
+                  searchString={searchString}
+                  setSearch={setSearch}
+                  search={search}
+                  handleRooms={handleRooms}
+                  handlePrice={handlePrice}
+                  filteredData={filteredData}
+                  handleSelect={handleSelect}
+                  posts={currentPosts}
+                  postsPerPage={postsPerPage}
+                  changePage={changePage}
+                  currentPage={currentPage} />
+              </div>
+            )}
+          />
 
-      <Footer />
-    </div>
+          <Route
+            exact
+            path='/item/:item'
+            render={(props) => (
+              <div>
+                <Item listingsData={listingsData} props={props} />
+              </div>
+            )}
+          />
+
+
+
+        </Switch>
+
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

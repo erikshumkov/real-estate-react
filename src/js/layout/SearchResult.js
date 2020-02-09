@@ -1,8 +1,16 @@
 import React from 'react';
 
 import Result from '../components/Result';
+import Pagination from '../components/Pagination';
 
-const SearchResult = ({ data, filteredData, handleSelect }) => {
+const SearchResult = ({
+  filteredData,
+  handleSelect,
+  posts,
+  postsPerPage,
+  changePage,
+  currentPage
+}) => {
   return (
     <div>
       <main id='results'>
@@ -22,23 +30,16 @@ const SearchResult = ({ data, filteredData, handleSelect }) => {
           </select>
 
           <div className='results-grid'>
-            {filteredData.map((data, index) => {
+            {posts.map((data, index) => {
               return <Result key={index} data={data} />;
             })}
           </div>
-          {/* <div className='pagination'>
-            <div className='page-prev page-btn'>
-              <i className='fas fa-angle-double-left'></i>
-              Föregående
-            </div>
-            <div className='page-num'>1</div>
-            <div className='page-num'>2</div>
-            <div className='page-num'>3</div>
-            <div className='page-next page-btn'>
-              Nästa
-              <i className='fas fa-angle-double-right'></i>
-            </div>
-          </div> */}
+          <Pagination
+            postsPerPage={postsPerPage}
+            totalPosts={filteredData.length}
+            changePage={changePage}
+            currentPage={currentPage}
+          />
         </div>
       </main>
     </div>

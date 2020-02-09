@@ -11,11 +11,12 @@ header {
   .logo {
     margin-right: 2rem;
     a {
-      color: rgb(34, 34, 34);
+      color: #222222;
       font-family: 'Lato', sans-serif;
-      font-weight: 700;
-      font-size: 1.3rem;
+      font-weight: 600;
+      font-size: 1.1rem;
       text-decoration: none;
+      text-transform: uppercase;
     }
   }
 
@@ -35,6 +36,27 @@ header {
     }
     li:first-of-type {
       border-color: grey;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  header {
+    padding: 0 0 20px 0;
+    .wrapper {
+      flex-direction: column;
+      max-width: 93%;
+      .logo {
+        padding: 10px 0px;
+        margin-bottom: 15px;
+      }
+      .menu {
+        li {
+          margin: 0 50px 0 0;
+          font-size: 14px;
+          font-weight: 300;
+        }
+      }
     }
   }
 }
