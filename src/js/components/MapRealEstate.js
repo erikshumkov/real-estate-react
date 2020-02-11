@@ -1,30 +1,23 @@
 import React, { useState } from 'react'
-import { Map, Marker, Popup, TileLayer } from "react-leaflet";
-import * as parkData from "../data/skateboard-parks.json";
+import { Map, Marker, TileLayer } from "react-leaflet";
 
+const MapRealEstate = ({ data }) => {
+  const [coords] = useState({
+    lat: data.coords.lat,
+    lng: data.coords.lng
+  });
 
-const MapRealEstate = () => {
-  const [activePark, setActivePark] = useState(null);
+  const position = [coords.lat, coords.lng];
 
   return (
-    <Map center={[45.44, -75.45]} zoom={11}>
+    <Map center={position} zoom={16}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       />
 
-      {parkData.features.map(park => (
-        <Marker
-          key={park.properties.PARK_ID}
-          position={[
-            park.geometry.coordinates[1],
-            park.geometry.coordinates[0]
-          ]}
-          onClick={() => {
-            setActivePark(park);
-          }}
-        />
-      ))}
+      <Marker position={position} />
+
 
     </Map>
   );

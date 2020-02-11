@@ -22,102 +22,174 @@ import radhus4 from '../../img/radhus4.jpg';
 
 const listingsData = [
   {
-    id: 1,
-    address: 'Hallegatan 10',
+    id: 0,
+    address: 'Lillängsgränd 13',
     city: 'Linköping',
     state: 'Östergötland',
     rooms: 5,
     price: 3500000,
     sqft: 140,
     homeType: 'villa',
+    route: {
+      city: "linkoping",
+      address: "lillangsgrand-13"
+    },
+    coords: {
+      lat: 58.3638084,
+      lng: 15.698550
+    },
     image: apartment
   },
   {
-    id: 2,
-    address: 'Sivs Gränd 20A',
+    id: 1,
+    address: 'Eklandagatan 9',
     city: 'Göteborg',
     state: 'Västra Götalands län',
     rooms: 3,
     price: 1750000,
     sqft: 85,
     homeType: 'apartment',
+    route: {
+      city: "goteborg",
+      address: "eklandagatan-9"
+    },
+    coords: {
+      lat: 57.694363,
+      lng: 11.986969
+    },
     image: apartment2
   },
   {
-    id: 3,
-    address: 'Lagmansgatan 32',
+    id: 2,
+    address: 'Ernst Ahlgrens väg 5',
     city: 'Stockholm',
     state: 'Stockholms län',
     rooms: 3,
     price: 2795000,
     sqft: 86,
     homeType: 'apartment',
+    route: {
+      city: "stockholm",
+      address: "ernst-ahlgrens-vag-5"
+    },
+    coords: {
+      lat: 59.330457,
+      lng: 18.004483
+    },
     image: apartment3
   },
   {
-    id: 4,
-    address: 'Thorells gata 55',
+    id: 3,
+    address: 'Ebbe Liberathsgatan 16 A',
     city: 'Göteborg',
     state: 'Västra Götalands län',
     rooms: 4,
     price: 3395000,
     sqft: 110,
     homeType: 'apartment',
+    route: {
+      city: "goteborg",
+      address: "ebbe-liberathsgatan-16"
+    },
+    coords: {
+      lat: 57.680146,
+      lng: 12.000723
+    },
     image: apartment4
   },
   {
-    id: 5,
-    address: 'Övre Hallegatan 12',
+    id: 4,
+    address: 'Engelbrektsgatan 7A',
     city: 'Linköping',
     state: 'Östergötland',
     rooms: 4,
     price: 2995000,
     sqft: 110,
     homeType: 'apartment',
+    route: {
+      city: "linkoping",
+      address: "engelbrektsgatan-7a"
+    },
+    coords: {
+      lat: 58.415438,
+      lng: 15.620112
+    },
     image: apartment5
   },
   {
-    id: 6,
-    address: 'Åbringsvägen 27',
+    id: 5,
+    address: 'Arvid Tydéns allé 16',
     city: 'Stockholm',
     state: 'Stockholms län',
     rooms: 4,
     price: 2645000,
     sqft: 125,
     homeType: 'apartment',
+    route: {
+      city: "stockholm",
+      address: "arvid-tydens-alle-16"
+    },
+    coords: {
+      lat: 59.352163,
+      lng: 18.007279
+    },
     image: apartment6
   },
   {
-    id: 7,
-    address: 'Flormansgatan 1A',
+    id: 6,
+    address: 'Djurgårdsgatan 9',
     city: 'Linköping',
     state: 'Östergötland',
     rooms: 4,
     price: 2195000,
     sqft: 115,
     homeType: 'apartment',
+    route: {
+      city: "linkoping",
+      address: "djurgardsgatan-9"
+    },
+    coords: {
+      lat: 58.407670,
+      lng: 15.617906
+    },
     image: apartment7
   },
   {
-    id: 8,
-    address: 'Kungsvägen 8',
+    id: 7,
+    address: 'Kunskapslänken 94',
     city: 'Linköping',
     state: 'Östergötland',
     rooms: 3,
     price: 2695000,
     sqft: 86,
     homeType: 'apartment',
+    route: {
+      city: "linkoping",
+      address: "kunskapslanken-94"
+    },
+    coords: {
+      lat: 58.393428,
+      lng: 15.584900
+    },
     image: apartment8
   },
   {
-    id: 9,
-    address: 'Ornövägen 9',
+    id: 8,
+    address: 'Åbroddsgränd 53',
     city: 'Stockholm',
     state: 'Stockholms län',
     rooms: 5,
     price: 5295000,
     sqft: 110,
     homeType: 'radhus',
+    route: {
+      city: "stockholm",
+      address: "abroddsgrand-53"
+    },
+    coords: {
+      lat: 59.236435,
+      lng: 18.219037
+    },
     image: apartment9
   },
   {
@@ -129,6 +201,14 @@ const listingsData = [
     price: 3275000,
     sqft: 106,
     homeType: 'radhus',
+    route: {
+      city: "linkoping",
+      address: "hallegatan-10"
+    },
+    coords: {
+      lat: 59.330457,
+      lng: 18.004483
+    },
     image: apartment10
   },
   {
@@ -140,6 +220,14 @@ const listingsData = [
     price: 2095000,
     sqft: 80,
     homeType: 'apartment',
+    route: {
+      city: "linkoping",
+      address: "hallegatan-10"
+    },
+    coords: {
+      lat: 59.330457,
+      lng: 18.004483
+    },
     image: apartment11
   },
   {
@@ -151,6 +239,14 @@ const listingsData = [
     price: 9750000,
     sqft: 120,
     homeType: 'villa',
+    route: {
+      city: "linkoping",
+      address: "hallegatan-10"
+    },
+    coords: {
+      lat: 59.330457,
+      lng: 18.004483
+    },
     image: apartment12
   },
   {
@@ -162,6 +258,14 @@ const listingsData = [
     price: 9500000,
     sqft: 180,
     homeType: 'fritidshus',
+    route: {
+      city: "linkoping",
+      address: "hallegatan-10"
+    },
+    coords: {
+      lat: 59.330457,
+      lng: 18.004483
+    },
     image: apartment13
   },
   {
@@ -173,6 +277,14 @@ const listingsData = [
     price: 6250000,
     sqft: 90,
     homeType: 'apartment',
+    route: {
+      city: "linkoping",
+      address: "hallegatan-10"
+    },
+    coords: {
+      lat: 59.330457,
+      lng: 18.004483
+    },
     image: apartment14
   },
   {
@@ -184,6 +296,14 @@ const listingsData = [
     price: 7500000,
     sqft: 140,
     homeType: 'fritidshus',
+    route: {
+      city: "linkoping",
+      address: "hallegatan-10"
+    },
+    coords: {
+      lat: 59.330457,
+      lng: 18.004483
+    },
     image: fritidshus
   },
   {
@@ -195,6 +315,14 @@ const listingsData = [
     price: 4525000,
     sqft: 142,
     homeType: 'radhus',
+    route: {
+      city: "linkoping",
+      address: "hallegatan-10"
+    },
+    coords: {
+      lat: 59.330457,
+      lng: 18.004483
+    },
     image: radhus
   },
   {
@@ -206,6 +334,14 @@ const listingsData = [
     price: 3500000,
     sqft: 136,
     homeType: 'radhus',
+    route: {
+      city: "linkoping",
+      address: "hallegatan-10"
+    },
+    coords: {
+      lat: 59.330457,
+      lng: 18.004483
+    },
     image: radhus2
   },
   {
@@ -217,6 +353,14 @@ const listingsData = [
     price: 9500000,
     sqft: 158,
     homeType: 'radhus',
+    route: {
+      city: "linkoping",
+      address: "hallegatan-10"
+    },
+    coords: {
+      lat: 59.330457,
+      lng: 18.004483
+    },
     image: radhus3
   },
   {
@@ -228,6 +372,14 @@ const listingsData = [
     price: 2975000,
     sqft: 125,
     homeType: 'radhus',
+    route: {
+      city: "linkoping",
+      address: "hallegatan-10"
+    },
+    coords: {
+      lat: 59.330457,
+      lng: 18.004483
+    },
     image: radhus4
   },
   {
@@ -239,6 +391,14 @@ const listingsData = [
     price: 2500000,
     sqft: 35,
     homeType: 'apartment',
+    route: {
+      city: "linkoping",
+      address: "hallegatan-10"
+    },
+    coords: {
+      lat: 59.330457,
+      lng: 18.004483
+    },
     image: apartment15
   },
   {
@@ -250,6 +410,14 @@ const listingsData = [
     price: 3000000,
     sqft: 35,
     homeType: 'apartment',
+    route: {
+      city: "linkoping",
+      address: "hallegatan-10"
+    },
+    coords: {
+      lat: 59.330457,
+      lng: 18.004483
+    },
     image: apartment16
   }
 ];

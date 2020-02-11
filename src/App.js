@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
@@ -13,6 +13,7 @@ import Header from './js/layout/Header';
 import Footer from './js/layout/Footer';
 import Home from './js/pages/Home';
 import Item from './js/pages/Item';
+import StartAtTop from "./js/components/StartAtTop";
 
 function App() {
   const [filteredData, setFilteredData] = useState([]);
@@ -133,49 +134,51 @@ function App() {
 
   return (
     <Router>
-      <div className='App'>
-        <Header />
+      <StartAtTop>
+        <div className='App'>
+          <Header />
 
-        <Switch>
+          <Switch>
 
-          <Route
-            exact
-            path='/'
-            render={() => (
-              <div>
-                <Home changeIt={changeIt}
-                  filter={setting}
-                  searchString={searchString}
-                  setSearch={setSearch}
-                  search={search}
-                  handleRooms={handleRooms}
-                  handlePrice={handlePrice}
-                  filteredData={filteredData}
-                  handleSelect={handleSelect}
-                  posts={currentPosts}
-                  postsPerPage={postsPerPage}
-                  changePage={changePage}
-                  currentPage={currentPage} />
-              </div>
-            )}
-          />
+            <Route
+              exact
+              path='/'
+              render={() => (
+                <div>
+                  <Home changeIt={changeIt}
+                    filter={setting}
+                    searchString={searchString}
+                    setSearch={setSearch}
+                    search={search}
+                    handleRooms={handleRooms}
+                    handlePrice={handlePrice}
+                    filteredData={filteredData}
+                    handleSelect={handleSelect}
+                    posts={currentPosts}
+                    postsPerPage={postsPerPage}
+                    changePage={changePage}
+                    currentPage={currentPage} />
+                </div>
+              )}
+            />
 
-          <Route
-            exact
-            path='/item/:item'
-            render={(props) => (
-              <div>
-                <Item listingsData={listingsData} props={props} />
-              </div>
-            )}
-          />
+            <Route
+              exact
+              path='/item/:city/:address'
+              render={(props) => (
+                <div>
+                  <Item {...props} listingsData={listingsData} />
+                </div>
+              )}
+            />
 
 
 
-        </Switch>
+          </Switch>
 
-        <Footer />
-      </div>
+          <Footer />
+        </div>
+      </StartAtTop>
     </Router>
   );
 }

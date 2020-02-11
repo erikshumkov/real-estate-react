@@ -2,8 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Result = ({ data }) => {
+
+  let city = data.route.city;
+  let address = data.route.address;
+
   return (
-    <Link className="result-link" to="/item/x">
+    <Link className="result-link" to={`/item/${city}/${address}`} >
       <div className='result'>
         <div className='image'>
           <div
