@@ -35,7 +35,11 @@ const Item = ({ listingsData, match }) => {
                   <tbody>
                     <tr>
                       <td>Bostadstyp</td>
-                      <td>{data.homeType}</td>
+                      <td>{data.type}</td>
+                    </tr>
+                    <tr>
+                      <td>Antal rum</td>
+                      <td>{data.rooms} rum</td>
                     </tr>
                     <tr>
                       <td>Boarea</td>
@@ -52,7 +56,7 @@ const Item = ({ listingsData, match }) => {
             <h3>Karta</h3>
           </div>
           <div className="map">
-            <MapRealEstate match={match} data={data} />
+            <MapRealEstate data={data} />
           </div>
         </div>
       </div>

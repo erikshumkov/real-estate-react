@@ -18,16 +18,19 @@ const SearchResult = ({
           <p>
             <span>{filteredData.length}</span> bostäder till salu
           </p>
-          <select
-            name='select-filter'
-            id='select-filter'
-            defaultValue={'newest'}
-            onChange={e => handleSelect(e.target.value)}
-          >
-            <option value='newest'>Nyast</option>
-            <option value='lowest'>Lägst pris</option>
-            <option value='highest'>Högst pris</option>
-          </select>
+          <div className="result-menu">
+            <select
+              name='select-filter'
+              id='select-filter'
+              defaultValue={'newest'}
+              onChange={e => handleSelect(e.target.value)}
+            >
+              <option value='newest'>Nyast</option>
+              <option value='lowest'>Lägst pris</option>
+              <option value='highest'>Högst pris</option>
+            </select>
+            {/* <div className="map-btn">Karta</div> */}
+          </div>
 
           <div className='results-grid'>
             {posts.map((data, index) => {

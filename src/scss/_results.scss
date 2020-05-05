@@ -12,13 +12,27 @@
         font-weight: 700;
       }
     }
-    select {
-      margin-bottom: 22px;
-      padding: 16.5px 10px;
-      width: 200px;
-      font-size: 1rem;
-      font-family: 'Roboto Slab', sans-serif;
+    .result-menu {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      select {
+        margin-bottom: 22px;
+        padding: 16.5px 10px;
+        width: 200px;
+        font-size: 1rem;
+        font-family: 'Roboto Slab', sans-serif;
+      }
+      .map-btn {
+        background: #3d7ab3;
+        color: white;
+        padding: 16.5px 10px;
+        width: 200px;
+        text-align: center;
+        cursor: pointer;
+      }
     }
+
     .results-grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;

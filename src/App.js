@@ -13,6 +13,8 @@ import Header from './js/layout/Header';
 import Footer from './js/layout/Footer';
 import Home from './js/pages/Home';
 import Item from './js/pages/Item';
+import MapRealEstate from './js/components/MapRealEstate';
+import NoMatch404 from './js/pages/NoMatch404';
 import StartAtTop from "./js/components/StartAtTop";
 
 function App() {
@@ -171,6 +173,20 @@ function App() {
                 </div>
               )}
             />
+
+            {/* <Route
+              exact
+              path='/map'
+              render={(props) => (
+                <div>
+                  <MapRealEstate filteredData={filteredData} />
+                </div>
+              )}
+            /> */}
+
+            <Route path="*">
+              <NoMatch404 />
+            </Route>
 
 
 

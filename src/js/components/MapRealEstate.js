@@ -7,7 +7,7 @@ const MapRealEstate = ({ data }) => {
     lng: data.coords.lng
   });
 
-  const position = [coords.lat, coords.lng];
+  let position = [coords.lat, coords.lng];
 
   return (
     <Map center={position} zoom={16}>

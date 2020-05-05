@@ -30,6 +30,7 @@ const listingsData = [
     price: 3500000,
     sqft: 140,
     homeType: 'villa',
+    type: 'Villa',
     route: {
       city: "linkoping",
       address: "lillangsgrand-13"
@@ -49,6 +50,7 @@ const listingsData = [
     price: 1750000,
     sqft: 85,
     homeType: 'apartment',
+    type: 'Lägenhet',
     route: {
       city: "goteborg",
       address: "eklandagatan-9"
@@ -68,6 +70,7 @@ const listingsData = [
     price: 2795000,
     sqft: 86,
     homeType: 'apartment',
+    type: 'Lägenhet',
     route: {
       city: "stockholm",
       address: "ernst-ahlgrens-vag-5"
@@ -87,6 +90,7 @@ const listingsData = [
     price: 3395000,
     sqft: 110,
     homeType: 'apartment',
+    type: 'Lägenhet',
     route: {
       city: "goteborg",
       address: "ebbe-liberathsgatan-16"
@@ -106,6 +110,7 @@ const listingsData = [
     price: 2995000,
     sqft: 110,
     homeType: 'apartment',
+    type: 'Lägenhet',
     route: {
       city: "linkoping",
       address: "engelbrektsgatan-7a"
@@ -125,6 +130,7 @@ const listingsData = [
     price: 2645000,
     sqft: 125,
     homeType: 'apartment',
+    type: 'Lägenhet',
     route: {
       city: "stockholm",
       address: "arvid-tydens-alle-16"
@@ -144,6 +150,7 @@ const listingsData = [
     price: 2195000,
     sqft: 115,
     homeType: 'apartment',
+    type: 'Lägenhet',
     route: {
       city: "linkoping",
       address: "djurgardsgatan-9"
@@ -163,6 +170,7 @@ const listingsData = [
     price: 2695000,
     sqft: 86,
     homeType: 'apartment',
+    type: 'Lägenhet',
     route: {
       city: "linkoping",
       address: "kunskapslanken-94"
@@ -182,6 +190,7 @@ const listingsData = [
     price: 5295000,
     sqft: 110,
     homeType: 'radhus',
+    type: 'Radhus',
     route: {
       city: "stockholm",
       address: "abroddsgrand-53"
@@ -193,230 +202,242 @@ const listingsData = [
     image: apartment9
   },
   {
-    id: 10,
-    address: 'Lönngatan 30C',
+    id: 9,
+    address: 'Växelmyntsgatan 3D',
     city: 'Göteborg',
     state: 'Västra Götalands län',
     rooms: 3,
     price: 3275000,
     sqft: 106,
     homeType: 'radhus',
+    type: 'Radhus',
     route: {
-      city: "linkoping",
-      address: "hallegatan-10"
+      city: "goteborg",
+      address: "vaxelmyntsgatan-3d"
     },
     coords: {
-      lat: 59.330457,
-      lng: 18.004483
+      lat: 57.674262,
+      lng: 11.911688
     },
     image: apartment10
   },
   {
-    id: 11,
-    address: 'Svängrumsgatan 52',
+    id: 10,
+    address: 'Selma Lagerlöfs gata 5',
     city: 'Linköping',
     state: 'Östergötland',
     rooms: 3,
     price: 2095000,
     sqft: 80,
     homeType: 'apartment',
+    type: 'Lägenhet',
     route: {
       city: "linkoping",
-      address: "hallegatan-10"
+      address: "selma-lagerlofs-gata-5"
     },
     coords: {
-      lat: 59.330457,
-      lng: 18.004483
+      lat: 58.393206,
+      lng: 15.583817
     },
     image: apartment11
   },
   {
-    id: 12,
-    address: 'Klädesvägen 50',
+    id: 11,
+    address: 'Ryttarvägen 19',
     city: 'Stockholm',
     state: 'Stockholms län',
     rooms: 4,
     price: 9750000,
     sqft: 120,
     homeType: 'villa',
+    type: 'Villa',
     route: {
-      city: "linkoping",
-      address: "hallegatan-10"
+      city: "stockholm",
+      address: "ryttarvagen-19"
     },
     coords: {
-      lat: 59.330457,
-      lng: 18.004483
+      lat: 59.313961,
+      lng: 18.265024
     },
     image: apartment12
   },
   {
-    id: 13,
-    address: 'Orrvägen 2',
+    id: 12,
+    address: 'Friggavägen 20',
     city: 'Stockholm',
     state: 'Stockholms län',
     rooms: 6,
     price: 9500000,
     sqft: 180,
     homeType: 'fritidshus',
+    type: 'Fritidshus',
     route: {
-      city: "linkoping",
-      address: "hallegatan-10"
+      city: "stockholm",
+      address: "friggavagen-20"
     },
     coords: {
-      lat: 59.330457,
-      lng: 18.004483
+      lat: 59.139023,
+      lng: 18.427246
     },
     image: apartment13
   },
   {
-    id: 14,
-    address: 'Pollarbacken 16',
+    id: 13,
+    address: 'Ringvägen 66',
     city: 'Stockholm',
     state: 'Stockholms län',
     rooms: 4,
     price: 6250000,
     sqft: 90,
     homeType: 'apartment',
+    type: 'Lägenhet',
     route: {
-      city: "linkoping",
-      address: "hallegatan-10"
+      city: "stockholm",
+      address: "ringvagen-66"
     },
     coords: {
-      lat: 59.330457,
-      lng: 18.004483
+      lat: 59.308111,
+      lng: 18.064882
     },
     image: apartment14
   },
   {
-    id: 15,
-    address: 'Örnstigen 10',
+    id: 14,
+    address: 'Lyckestigen 41',
     city: 'Göteborg',
     state: 'Västra Götalands län',
     rooms: 6,
     price: 7500000,
     sqft: 140,
     homeType: 'fritidshus',
+    type: 'Fritidshus',
     route: {
-      city: "linkoping",
-      address: "hallegatan-10"
+      city: "goteborg",
+      address: "lyckestigen-41"
     },
     coords: {
-      lat: 59.330457,
-      lng: 18.004483
+      lat: 57.631968,
+      lng: 11.927179
     },
     image: fritidshus
   },
   {
-    id: 16,
-    address: 'Lärdomsvägen 9',
+    id: 15,
+    address: 'Poesigränd 7',
     city: 'Linköping',
     state: 'Östergötlands län',
     rooms: 5,
     price: 4525000,
     sqft: 142,
     homeType: 'radhus',
+    type: 'Radhus',
     route: {
       city: "linkoping",
-      address: "hallegatan-10"
+      address: "poesigrand-7"
     },
     coords: {
-      lat: 59.330457,
-      lng: 18.004483
+      lat: 58.392120,
+      lng: 15.582786
     },
     image: radhus
   },
   {
-    id: 17,
-    address: 'Björnvägen 12',
+    id: 16,
+    address: 'Ingebäcksvägen 12',
     city: 'Göteborg',
     state: 'Västra Götalands län',
     rooms: 4,
     price: 3500000,
     sqft: 136,
     homeType: 'radhus',
+    type: 'Radhus',
     route: {
-      city: "linkoping",
-      address: "hallegatan-10"
+      city: "goteborg",
+      address: "ingebacksvagen-12"
     },
     coords: {
-      lat: 59.330457,
-      lng: 18.004483
+      lat: 57.802931,
+      lng: 11.995780
     },
     image: radhus2
   },
   {
-    id: 18,
-    address: 'Gunnarbogatan 33',
+    id: 17,
+    address: 'Henriksborgsvägen 84',
     city: 'Stockholm',
     state: 'Stockholms län',
     rooms: 6,
     price: 9500000,
     sqft: 158,
     homeType: 'radhus',
+    type: 'Radhus',
     route: {
-      city: "linkoping",
-      address: "hallegatan-10"
+      city: "stockholm",
+      address: "henriksborgsvagen-84"
     },
     coords: {
-      lat: 59.330457,
-      lng: 18.004483
+      lat: 59.314347,
+      lng: 18.113643
     },
     image: radhus3
   },
   {
-    id: 19,
-    address: 'Atterbomsvägen 35',
+    id: 18,
+    address: 'Utsädesgatan 67',
     city: 'Linköping',
     state: 'Östergötlands län',
     rooms: 6,
     price: 2975000,
     sqft: 125,
     homeType: 'radhus',
+    type: 'Radhus',
     route: {
       city: "linkoping",
-      address: "hallegatan-10"
+      address: "utsadesgatan-67"
     },
     coords: {
-      lat: 59.330457,
-      lng: 18.004483
+      lat: 58.377582,
+      lng: 15.578091
     },
     image: radhus4
   },
   {
-    id: 20,
-    address: 'Bodalsgatan 3B',
+    id: 19,
+    address: 'Hornsgatan 151',
     city: 'Stockholm',
     state: 'Stockholms län',
     rooms: 1,
     price: 2500000,
     sqft: 35,
     homeType: 'apartment',
+    type: 'Lägenhet',
     route: {
-      city: "linkoping",
-      address: "hallegatan-10"
+      city: "stockholm",
+      address: "hornsgatan-151"
     },
     coords: {
-      lat: 59.330457,
-      lng: 18.004483
+      lat: 59.315023,
+      lng: 18.032540
     },
     image: apartment15
   },
   {
-    id: 21,
-    address: 'Kvarngatan 1',
+    id: 20,
+    address: 'Katarina Bangata 59',
     city: 'Stockholm',
     state: 'Stockholms län',
     rooms: 1,
     price: 3000000,
     sqft: 35,
     homeType: 'apartment',
+    type: 'Lägenhet',
     route: {
-      city: "linkoping",
-      address: "hallegatan-10"
+      city: "stockholm",
+      address: "katarina-bangata-59"
     },
     coords: {
-      lat: 59.330457,
-      lng: 18.004483
+      lat: 59.309540,
+      lng: 18.087983
     },
     image: apartment16
   }
