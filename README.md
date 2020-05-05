@@ -1,5 +1,4 @@
 # Real Estate React
 
-Built with HTML, SCSS, then implemented React.
-
-New features are being added
+Built with HTML, SCSS from the ground then implemented React.
+Added Leaflet.js (react-leaflet) for maps on each item.
