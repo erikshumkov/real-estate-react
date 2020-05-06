@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import Suggestions from '../components/Suggestions';
 
 const FilterSection = ({
   changeIt,
@@ -8,6 +9,15 @@ const FilterSection = ({
   handlePrice,
   handleRooms
 }) => {
+  const [result, setResult] = useState([]);
+  const [showResult, setShowResult] = useState(false);
+
+  const btnClick = (e) => {
+    searchString(e.currentTarget.textContent);
+    setShowResult(false);
+    setResult([]);
+  }
+
   const filterTrue = {
     background: '#fff',
     color: '#000'
@@ -16,6 +26,25 @@ const FilterSection = ({
   const filterFalse = {
     background: '#eee'
   };
+
+  const cities = ["Linköping", "Göteborg", "Stockholm"];
+
+  const getInfo = () => {
+    let filter = cities.filter(c => {
+      if (search && search.length > 0) {
+        return c.toLowerCase().includes(search.toLowerCase())
+      } else {
+        return null;
+      }
+    })
+    setShowResult(true);
+    setResult(filter);
+  }
+
+  useEffect(() => {
+    getInfo();
+  }, [search])
+
 
   return (
     <div>
@@ -29,8 +58,9 @@ const FilterSection = ({
                 id='search'
                 value={search}
                 onChange={e => searchString(e.target.value)}
-                placeholder='Sök på stad'
+                placeholder='Sök på stad...'
               />
+              <Suggestions btnClick={btnClick} showResult={showResult} results={result} />
             </form>
           </div>
           <div className='filter-menu'>

@@ -7,6 +7,7 @@
     .filter-search {
       margin-bottom: 1.5rem;
       form {
+        position: relative;
         #search {
           color: black;
           font-size: 1.1rem;
@@ -17,6 +18,22 @@
           border: none;
           outline: none;
           box-shadow: 0px 7px 14px -10px rgba(0, 0, 0, 0.5);
+        }
+        .suggestions {
+          position: absolute;
+          list-style: none;
+          top: 100%;
+          width: 100%;
+          z-index: 10;
+          li {
+            background: #fff;
+            padding: 15px 25px;
+            &:hover {
+              background: rgb(148, 207, 255);
+              font-weight: bold;
+              cursor: pointer;
+            }
+          }
         }
       }
     }
