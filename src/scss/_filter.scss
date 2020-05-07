@@ -35,6 +35,14 @@
             }
           }
         }
+        .no-suggestions {
+          position: absolute;
+          top: 100%;
+          width: 100%;
+          z-index: 10;
+          padding: 15px 25px;
+          background: #fff;
+        }
       }
     }
     .filter-menu {

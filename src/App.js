@@ -13,7 +13,6 @@ import Header from './js/layout/Header';
 import Footer from './js/layout/Footer';
 import Home from './js/pages/Home';
 import Item from './js/pages/Item';
-import MapRealEstate from './js/components/MapRealEstate';
 import NoMatch404 from './js/pages/NoMatch404';
 import StartAtTop from "./js/components/StartAtTop";
 
@@ -105,24 +104,24 @@ function App() {
     }
 
     if (search !== '' && newData !== undefined) {
-      newData = newData.filter(item => {
-        let city = item.city.toLowerCase();
-        let searchText = search.toLowerCase();
-        let matchStrings = city.match(searchText);
+      if (search.length > 3) {
+        newData = newData.filter(item => {
+          let city = item.city.toLowerCase();
+          let searchText = search.toLowerCase();
+          let matchStrings = city.match(searchText);
 
-        if (matchStrings !== null) {
-          return true;
-        }
-        return null;
-      });
+          if (matchStrings !== null) {
+            return true;
+          }
+          return null;
+        });
+      }
     }
 
     setFilteredData(newData);
   };
 
-  useEffect(() => {
-    filterTheData();
-  }, [setting, select, search, selectRooms, selectPrice]);
+  useEffect(filterTheData, [setting, select, search, selectRooms, selectPrice]);
 
   // Get current posts
   const lastPostIndex = currentPage * postsPerPage;
@@ -174,22 +173,9 @@ function App() {
               )}
             />
 
-            {/* <Route
-              exact
-              path='/map'
-              render={(props) => (
-                <div>
-                  <MapRealEstate filteredData={filteredData} />
-                </div>
-              )}
-            /> */}
-
             <Route path="*">
               <NoMatch404 />
             </Route>
-
-
-
           </Switch>
 
           <Footer />

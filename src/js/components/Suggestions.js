@@ -1,14 +1,29 @@
 import React from 'react'
 
-const Suggestions = (props) => {
-  if (props.showResult) {
-    const options = props.results.map(result => (
-      <li onClick={props.btnClick} key={result}>
-        {result}
-      </li>
-    ))
-    return <ul className="suggestions">{options}</ul>
-  } else return null;
+const Suggestions = ({ filtered, showSuggestions, search, onClick }) => {
+  if (showSuggestions && search) {
+    if (filtered.length) {
+      return (
+        <ul className="suggestions">
+          {filtered.map((city, index) => {
+            return (
+              <li key={city} onClick={onClick}>
+                {city}
+              </li>
+            );
+          })}
+        </ul>
+      )
+    } else {
+      return (
+        <div className="no-suggestions">
+          <em>Hittade inget förslag (testa Linköping, Stockholm, Göteborg)</em>
+        </div>
+      );
+    }
+  } else {
+    return null;
+  }
 }
 
 export default Suggestions
