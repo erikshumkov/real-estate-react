@@ -13,10 +13,9 @@ header {
     a {
       color: #222222;
       font-family: 'Lato', sans-serif;
-      font-weight: 600;
-      font-size: 1.1rem;
+      font-weight: 800;
+      font-size: 1.5rem;
       text-decoration: none;
-      text-transform: uppercase;
     }
   }
 
@@ -25,17 +24,23 @@ header {
       cursor: pointer;
       display: inline-block;
       margin: 0 20px;
-      color: rgb(73, 73, 73);
+      color: rgb(116, 116, 116);
       border-bottom: 2px solid #fff;
       transition: color 0.3s ease-in-out;
       font-family: 'Roboto Slab', serif;
-      font-weight: 300;
+      font-weight: 400;
       &:hover {
         color: rgb(34, 34, 34);
       }
     }
+    .dummy-link {
+      &:hover {
+        color: #000;
+      }
+    }
     li:first-of-type {
-      border-color: grey;
+      color: #000;
+      font-weight: 600;
     }
   }
 }

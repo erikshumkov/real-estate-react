@@ -154,8 +154,8 @@ const FilterSection = ({
 };
 
 const filterTrue = {
-  background: '#fff',
-  color: '#000'
+  background: '#1493bc',
+  color: '#fff'
 };
 
 const filterFalse = {

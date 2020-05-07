@@ -12,8 +12,8 @@ const Header = () => {
 
           <ul className='menu'>
             <li>Sök bostad</li>
-            <li>Sälja bostad</li>
-            <li>Hitta mäklare</li>
+            <li className="dummy-link">Sälja bostad</li>
+            <li className="dummy-link">Hitta mäklare</li>
           </ul>
         </div>
       </header>

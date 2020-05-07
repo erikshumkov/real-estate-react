@@ -59,6 +59,7 @@
         font-family: 'Roboto Slab', serif;
         font-weight: 600;
         letter-spacing: 0.7px;
+        transition: all 0.1s ease;
         label {
           position: absolute;
           top: 0;
@@ -75,7 +76,7 @@
         }
         &:hover {
           cursor: pointer;
-          border-color: black;
+          border-color: rgb(185, 185, 185);
         }
         i {
           font-size: 17px;
@@ -103,7 +104,7 @@
         }
         label {
           display: block;
-          color: rgb(61, 61, 61);
+          color: rgb(126, 126, 126);
           margin-bottom: 5px;
           font-family: 'Roboto Slab', sans-serif;
           font-weight: 600;

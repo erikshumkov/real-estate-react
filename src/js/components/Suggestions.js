@@ -5,7 +5,7 @@ const Suggestions = ({ filtered, showSuggestions, search, onClick }) => {
     if (filtered.length) {
       return (
         <ul className="suggestions">
-          {filtered.map((city, index) => {
+          {filtered.map(city => {
             return (
               <li key={city} onClick={onClick}>
                 {city}
