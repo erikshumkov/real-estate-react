@@ -1,6 +1,6 @@
 import React from 'react'
 
-const FilterButtons = ({ filter, changeIt }) => {
+const FilterButtons = ({ filter, handleCheckboxToggle }) => {
   return (
     <div className='filter-menu'>
       <div
@@ -12,7 +12,7 @@ const FilterButtons = ({ filter, changeIt }) => {
           type='checkbox'
           name='villa'
           id='villa'
-          onClick={changeIt}
+          onClick={handleCheckboxToggle}
         />
         <i className='fas fa-home'></i>
               villa
@@ -26,7 +26,7 @@ const FilterButtons = ({ filter, changeIt }) => {
           type='checkbox'
           name='apartment'
           id='apartment'
-          onClick={changeIt}
+          onClick={handleCheckboxToggle}
         />
         <i className='far fa-building'></i>
               lägenhet
@@ -40,7 +40,7 @@ const FilterButtons = ({ filter, changeIt }) => {
           type='checkbox'
           name='radhus'
           id='radhus'
-          onClick={changeIt}
+          onClick={handleCheckboxToggle}
         />
         <i className='fas fa-home'></i>
         <i className='fas fa-home'></i>
@@ -55,7 +55,7 @@ const FilterButtons = ({ filter, changeIt }) => {
           type='checkbox'
           name='fritidshus'
           id='fritidshus'
-          onClick={changeIt}
+          onClick={handleCheckboxToggle}
         />
         <i className='fas fa-umbrella-beach'></i>
               fritidshus

@@ -11,7 +11,7 @@ const NoMatch404 = () => {
   return (
     <div style={styling}>
       <h1>
-        404, page not found.
+        404, hittade inte sidan.
       </h1>
     </div>
   )

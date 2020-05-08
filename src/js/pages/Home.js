@@ -2,13 +2,13 @@ import React from 'react'
 import FilterSection from '../layout/FilterSection';
 import SearchResult from '../layout/SearchResult';
 
-const Home = ({ changeIt, filter, searchString, setSearch, search, handleRooms, handlePrice, filteredData, handleSelect, posts, postsPerPage, changePage, currentPage }) => {
+const Home = ({ handleCheckboxToggle, filter, searchString, setSearch, search, handleRooms, handlePrice, filteredData, handleSelect, posts, postsPerPage, changePage, currentPage }) => {
 
 
   return (
     <div>
       <FilterSection
-        changeIt={changeIt}
+        handleCheckboxToggle={handleCheckboxToggle}
         filter={filter}
         searchString={searchString}
         search={search}

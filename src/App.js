@@ -31,19 +31,23 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(9);
 
+  // In what order the results should be shown. Newest, Lowest price, etc.
   const handleSelect = event => {
     setSelect(`${event}`);
   };
 
+  // Listens for how many rooms select filter
   const handleRooms = event => {
     setSelectRooms(`${event}`);
   };
 
+  // Listens for highest price select filter
   const handlePrice = event => {
     setSelectPrice(`${event}`);
   };
 
-  const changeIt = event => {
+  // Listens for the buttons on the filter component
+  const handleCheckboxToggle = event => {
     const name = event.target.name;
     const value = event.target.checked;
 
@@ -53,6 +57,7 @@ function App() {
     });
   };
 
+  // Search input
   const searchString = string => {
     setSearch(string);
   };
@@ -121,7 +126,6 @@ function App() {
     setFilteredData(newData);
   };
 
-
   useEffect(filterTheData, [setting, select, search, selectRooms, selectPrice]);
 
   // Get current posts
@@ -131,7 +135,9 @@ function App() {
 
   // Change page
   const changePage = (pageNumber, totalPages) => {
-    if (pageNumber > 0 && pageNumber < totalPages) setCurrentPage(pageNumber);
+    if (pageNumber > 0 && pageNumber < totalPages) {
+      setCurrentPage(pageNumber);
+    }
   };
 
   return (
@@ -147,7 +153,7 @@ function App() {
               path='/'
               render={() => (
                 <div>
-                  <Home changeIt={changeIt}
+                  <Home handleCheckboxToggle={handleCheckboxToggle}
                     filter={setting}
                     searchString={searchString}
                     setSearch={setSearch}

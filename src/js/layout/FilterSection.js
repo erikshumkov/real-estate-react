@@ -4,7 +4,7 @@ import FilterButtons from './filtermenu/FilterButtons';
 import FilterSelect from './filtermenu/FilterSelect';
 
 const FilterSection = ({
-  changeIt,
+  handleCheckboxToggle,
   filter,
   searchString,
   search,
@@ -49,7 +49,7 @@ const FilterSection = ({
             </form>
           </div>
 
-          <FilterButtons filter={filter} changeIt={changeIt} />
+          <FilterButtons filter={filter} handleCheckboxToggle={handleCheckboxToggle} />
 
           <FilterSelect handlePrice={handlePrice} handleRooms={handleRooms} />
         </div>
