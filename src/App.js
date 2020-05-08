@@ -121,6 +121,7 @@ function App() {
     setFilteredData(newData);
   };
 
+
   useEffect(filterTheData, [setting, select, search, selectRooms, selectPrice]);
 
   // Get current posts
@@ -129,8 +130,8 @@ function App() {
   const currentPosts = filteredData.slice(firstPostIndex, lastPostIndex);
 
   // Change page
-  const changePage = pageNumber => {
-    if (pageNumber > 0 && pageNumber < 6) setCurrentPage(pageNumber);
+  const changePage = (pageNumber, totalPages) => {
+    if (pageNumber > 0 && pageNumber < totalPages) setCurrentPage(pageNumber);
   };
 
   return (

@@ -29,7 +29,6 @@ const SearchResult = ({
               <option value='lowest'>Lägst pris</option>
               <option value='highest'>Högst pris</option>
             </select>
-            {/* <div className="map-btn">Karta</div> */}
           </div>
 
           <div className='results-grid'>

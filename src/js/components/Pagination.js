@@ -9,12 +9,13 @@ const Pagination = ({ postsPerPage, totalPosts, changePage, currentPage }) => {
 
   const previousPage = currentPage - 1;
   const nextPage = currentPage + 1;
+  let totalPages = pageNumbers.length + 1;
 
   return (
     <div className='pagination'>
       <div
         className='page-prev page-btn'
-        onClick={() => changePage(previousPage)}
+        onClick={() => changePage(previousPage, totalPages)}
       >
         <i className='fas fa-angle-double-left'></i>
         Föregående
@@ -29,7 +30,7 @@ const Pagination = ({ postsPerPage, totalPosts, changePage, currentPage }) => {
           {number}
         </div>
       ))}
-      <div className='page-next page-btn' onClick={() => changePage(nextPage)}>
+      <div className='page-next page-btn' onClick={() => changePage(nextPage, totalPages)}>
         Nästa
         <i className='fas fa-angle-double-right'></i>
       </div>

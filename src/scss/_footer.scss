@@ -1,6 +1,6 @@
 #footer {
   padding: 3.5rem 0 6rem;
-  background: #313131;
+  background: #28364a;
   .wrapper {
     width: 1100px;
     margin: 0 auto;
@@ -22,6 +22,10 @@
             list-style-type: none;
             margin: 5px 0;
             font-size: 15px;
+            cursor: pointer;
+            &:hover {
+              text-decoration: underline;
+            }
           }
         }
       }
@@ -40,15 +44,12 @@
             list-style-type: none;
             margin: 0 5px;
             color: #fff;
-            i {
-              margin-right: 10px;
-              font-size: 30px;
-              // &.fa-facebook {
-              //   color: #3b5998;
-              // }
-              // &.fa-twitter-square {
-              //   color: #1da1f2;
-              // }
+            a {
+              color: #fff;
+              i {
+                margin-right: 10px;
+                font-size: 30px;
+              }
             }
           }
           li:first-of-type {

@@ -19,13 +19,19 @@ const Footer = () => {
               <h2>Följ oss</h2>
               <ul>
                 <li>
-                  <i className='fab fa-facebook'></i>
+                  <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                    <i className='fab fa-facebook'></i>
+                  </a>
                 </li>
                 <li>
-                  <i className='fab fa-twitter-square'></i>
+                  <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+                    <i className='fab fa-twitter-square'></i>
+                  </a>
                 </li>
                 <li>
-                  <i className='fab fa-instagram'></i>
+                  <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                    <i className='fab fa-instagram'></i>
+                  </a>
                 </li>
                 <li></li>
               </ul>

@@ -103,21 +103,25 @@
       }
       .page-btn {
         padding: 15px 20px;
-        // background: #3880be;
         color: grey;
         transition: 0.2s background ease-in-out;
-        // &:hover {
-        //   background: #2e6799;
-        // }
       }
       .page-prev {
         i {
           margin-right: 8px;
         }
+        transition: 0.3s color ease;
+        &:hover {
+          color: #000;
+        }
       }
       .page-next {
         i {
           margin-left: 8px;
+        }
+        transition: 0.3s color ease;
+        &:hover {
+          color: #000;
         }
       }
     }
