@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/real-estate-react/precache-manifest.116d4dd703b694f27ef60c8acb5f4c17.js"
+  "/real-estate-react/precache-manifest.f2243471b3592f33a957fb68230b9e13.js"
 );
 
 self.addEventListener('message', (event) => {
