@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/real-estate-react/static/css/main.ed4f9a47.chunk.css",
-    "main.js": "/real-estate-react/static/js/main.336fbfef.chunk.js",
-    "main.js.map": "/real-estate-react/static/js/main.336fbfef.chunk.js.map",
+    "main.css": "/real-estate-react/static/css/main.40dab79f.chunk.css",
+    "main.js": "/real-estate-react/static/js/main.4dc90297.chunk.js",
+    "main.js.map": "/real-estate-react/static/js/main.4dc90297.chunk.js.map",
     "runtime-main.js": "/real-estate-react/static/js/runtime-main.b5ac8807.js",
     "runtime-main.js.map": "/real-estate-react/static/js/runtime-main.b5ac8807.js.map",
-    "static/js/2.c6f62408.chunk.js": "/real-estate-react/static/js/2.c6f62408.chunk.js",
-    "static/js/2.c6f62408.chunk.js.map": "/real-estate-react/static/js/2.c6f62408.chunk.js.map",
+    "static/js/2.ea191a9e.chunk.js": "/real-estate-react/static/js/2.ea191a9e.chunk.js",
+    "static/js/2.ea191a9e.chunk.js.map": "/real-estate-react/static/js/2.ea191a9e.chunk.js.map",
     "index.html": "/real-estate-react/index.html",
-    "precache-manifest.b1842d0972fcc7e8d22e90e7284905b7.js": "/real-estate-react/precache-manifest.b1842d0972fcc7e8d22e90e7284905b7.js",
+    "precache-manifest.6a1c028bf676346dad64a4f1a3bfd673.js": "/real-estate-react/precache-manifest.6a1c028bf676346dad64a4f1a3bfd673.js",
     "service-worker.js": "/real-estate-react/service-worker.js",
-    "static/css/main.ed4f9a47.chunk.css.map": "/real-estate-react/static/css/main.ed4f9a47.chunk.css.map",
-    "static/js/2.c6f62408.chunk.js.LICENSE": "/real-estate-react/static/js/2.c6f62408.chunk.js.LICENSE",
+    "static/css/main.40dab79f.chunk.css.map": "/real-estate-react/static/css/main.40dab79f.chunk.css.map",
+    "static/js/2.ea191a9e.chunk.js.LICENSE": "/real-estate-react/static/js/2.ea191a9e.chunk.js.LICENSE",
     "static/media/apartment.jpg": "/real-estate-react/static/media/apartment.b297e4f5.jpg",
     "static/media/apartment10.jpg": "/real-estate-react/static/media/apartment10.7d7f92f9.jpg",
     "static/media/apartment11.jpg": "/real-estate-react/static/media/apartment11.26a8a009.jpg",
@@ -36,8 +36,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.b5ac8807.js",
-    "static/js/2.c6f62408.chunk.js",
-    "static/css/main.ed4f9a47.chunk.css",
-    "static/js/main.336fbfef.chunk.js"
+    "static/js/2.ea191a9e.chunk.js",
+    "static/css/main.40dab79f.chunk.css",
+    "static/js/main.4dc90297.chunk.js"
   ]
 }
