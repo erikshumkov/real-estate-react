@@ -1,7 +1,7 @@
 import React from 'react'
 import MapRealEstate from '../components/MapRealEstate'
 
-const Item = ({ listingsData, match }) => {
+const Item = ({ listingsData, match, location }) => {
 
 
   let checkRoute = listingsData.filter(
@@ -56,7 +56,7 @@ const Item = ({ listingsData, match }) => {
             <h3>Karta</h3>
           </div>
           <div className="map">
-            <MapRealEstate data={data} />
+            <MapRealEstate data={data} location={location} />
           </div>
         </div>
       </div>

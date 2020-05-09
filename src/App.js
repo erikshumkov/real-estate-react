@@ -15,6 +15,7 @@ import Home from './js/pages/Home';
 import Item from './js/pages/Item';
 import NoMatch404 from './js/pages/NoMatch404';
 import StartAtTop from "./js/components/StartAtTop";
+import MapPage from './js/pages/MapPage';
 
 function App() {
   const [filteredData, setFilteredData] = useState([]);
@@ -176,6 +177,16 @@ function App() {
               render={(props) => (
                 <div>
                   <Item {...props} listingsData={listingsData} />
+                </div>
+              )}
+            />
+
+            <Route
+              exact
+              path="/karta/bostad"
+              render={(props) => (
+                <div>
+                  <MapPage {...props} filteredData={filteredData} />
                 </div>
               )}
             />

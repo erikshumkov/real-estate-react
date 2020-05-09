@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 import Result from '../components/Result';
 import Pagination from '../components/Pagination';
@@ -29,6 +30,13 @@ const SearchResult = ({
               <option value='lowest'>Lägst pris</option>
               <option value='highest'>Högst pris</option>
             </select>
+
+            <div className="map">
+              <Link to="/karta/bostad">
+                <i className="fas fa-map-marked"></i>
+                <span>Visa på karta</span>
+              </Link>
+            </div>
           </div>
 
           <div className='results-grid'>

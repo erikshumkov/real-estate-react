@@ -25,7 +25,7 @@ const Pagination = ({ postsPerPage, totalPosts, changePage, currentPage }) => {
         <div
           key={number}
           className='page-num'
-          onClick={() => changePage(number)}
+          onClick={() => changePage(number, totalPages)}
         >
           {number}
         </div>
