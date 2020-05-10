@@ -186,7 +186,7 @@ function App() {
               path="/karta/bostad"
               render={(props) => (
                 <div>
-                  <MapPage {...props} filteredData={filteredData} />
+                  <MapPage {...props} data={filteredData} />
                 </div>
               )}
             />

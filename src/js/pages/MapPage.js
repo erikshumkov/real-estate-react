@@ -3,9 +3,29 @@ import MapRealEstate from '../components/MapRealEstate';
 import { Link } from "react-router-dom";
 
 
-const MapPage = ({ filteredData, location }) => {
+const MapPage = ({ data, location }) => {
 
-  let data = filteredData;
+  const refs = data.reduce((acc, value) => {
+    acc[value.id] = React.createRef();
+    return acc;
+  }, {});
+
+  const getItemOnClick = id => {
+    // Remove border from each item
+    for (const ref in refs) {
+      refs[ref].current.firstChild.style.border = "none";
+    }
+
+    refs[id].current.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+
+    // Add border to selected item
+    const li = refs[id].current.firstChild;
+    li.style.border = "2px solid black";
+  }
+
 
   return (
     <div className="MapPage">
@@ -13,7 +33,12 @@ const MapPage = ({ filteredData, location }) => {
         <div className="items">
 
           {data.map(home => (
-            <Link key={home.id} className="home-link" to={`/item/${home.route.city}/${home.route.address}`}>
+            <Link
+              key={home.id}
+              ref={refs[home.id]}
+              className="home-link"
+              to={`/item/${home.route.city}/${home.route.address}`}
+            >
               <div className="home-item">
                 <div className="img">
                   <img src={home.image} alt="home" />
@@ -35,7 +60,7 @@ const MapPage = ({ filteredData, location }) => {
 
         </div>
         <div className="map-container">
-          <MapRealEstate data={filteredData} location={location} />
+          <MapRealEstate data={data} location={location} getItemOnClick={getItemOnClick} />
         </div>
       </div>
     </div>

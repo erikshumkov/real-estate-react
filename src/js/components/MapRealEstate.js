@@ -1,7 +1,7 @@
 import React from 'react'
 import { Map, Marker, TileLayer } from "react-leaflet";
 
-const MapRealEstate = ({ data, location }) => {
+const MapRealEstate = ({ data, location, getItemOnClick }) => {
   // Get pathname
   let path = location.pathname;
   // Check if the route / path is true
@@ -15,20 +15,18 @@ const MapRealEstate = ({ data, location }) => {
       />
 
       {ifPath ? (data.map(home => (
-        < Marker
+        <Marker
           key={home.id}
           position={
             [
               home.coords.lat,
               home.coords.lng
             ]}
+          onclick={() => getItemOnClick(home.id)}
         />
       ))) : (
           <Marker position={[data.coords.lat, data.coords.lng]} />
         )}
-
-
-
     </Map>
   );
 
