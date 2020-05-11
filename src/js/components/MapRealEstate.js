@@ -1,4 +1,5 @@
 import React from 'react'
+import L from "leaflet";
 import { Map, Marker, TileLayer } from "react-leaflet";
 
 const MapRealEstate = ({ data, location, getItemOnClick }) => {
@@ -6,6 +7,14 @@ const MapRealEstate = ({ data, location, getItemOnClick }) => {
   let path = location.pathname;
   // Check if the route / path is true
   let ifPath = path === "/karta/bostad";
+
+  // Custom Leaflet icon
+  const icon = L.divIcon({
+    className: "custom-div-icon",
+    html: "<div style='background-color:#1493bc;' class='marker-pin'></div><i class='material-icons'>home</i>",
+    iconSize: [30, 42],
+    iconAnchor: [15, 42]
+  })
 
   return (
     <Map center={ifPath ? [57.9, 14.7] : [data.coords.lat, data.coords.lng]} zoom={ifPath ? 6 : 16} scrollWheelZoom={false} >
@@ -17,6 +26,7 @@ const MapRealEstate = ({ data, location, getItemOnClick }) => {
       {ifPath ? (data.map(home => (
         <Marker
           key={home.id}
+          icon={icon}
           position={
             [
               home.coords.lat,
@@ -25,7 +35,10 @@ const MapRealEstate = ({ data, location, getItemOnClick }) => {
           onclick={() => getItemOnClick(home.id)}
         />
       ))) : (
-          <Marker position={[data.coords.lat, data.coords.lng]} />
+          <Marker
+            icon={icon}
+            position={[data.coords.lat, data.coords.lng]}
+          />
         )}
     </Map>
   );

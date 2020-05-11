@@ -63,3 +63,36 @@
     }
   }
 }
+
+.marker-pin {
+  width: 30px;
+  height: 30px;
+  border-radius: 50% 50% 50% 0;
+  background: #1493bc;
+  position: absolute;
+  transform: rotate(-45deg);
+  left: 50%;
+  top: 50%;
+  margin: -15px 0 0 -15px;
+}
+// to draw white circle
+.marker-pin::after {
+  content: '';
+  width: 24px; // 24
+  height: 24px; // 24
+  margin: 3px 0 0 3px;
+  background: #fff;
+  position: absolute;
+  border-radius: 50%;
+}
+// to align icon
+.custom-div-icon i {
+  position: absolute;
+  color: rgb(51, 51, 51);
+  width: 22px;
+  font-size: 22px;
+  left: 0;
+  right: 0;
+  margin: 10px auto;
+  text-align: center;
+}
