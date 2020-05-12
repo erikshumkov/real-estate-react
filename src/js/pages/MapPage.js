@@ -26,6 +26,10 @@ const MapPage = ({ data, location }) => {
     li.style.border = "2px solid black";
   }
 
+  // const func = (e, id) => {
+
+  // }
+
 
   return (
     <div className="MapPage">

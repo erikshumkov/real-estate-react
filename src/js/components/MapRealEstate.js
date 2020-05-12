@@ -27,6 +27,14 @@ const MapRealEstate = ({ data, location, getItemOnClick }) => {
         <Marker
           key={home.id}
           icon={icon}
+          onmouseover={(e) => {
+            e.target._icon.firstChild.style.backgroundColor = "#0e6a88";
+            e.target._icon.firstChild.style.transform = "scale(1.2) rotate(-45deg)";
+          }}
+          onmouseout={(e) => {
+            e.target._icon.firstChild.style.backgroundColor = "#1493bc";
+            e.target._icon.firstChild.style.transform = "scale(1) rotate(-45deg)";
+          }}
           position={
             [
               home.coords.lat,
