@@ -67,6 +67,7 @@
 .marker-pin {
   width: 30px;
   height: 30px;
+  border: 2px solid #fff;
   border-radius: 50% 50% 50% 0;
   background: #1493bc;
   position: absolute;
@@ -77,19 +78,19 @@
   transition: 0.4s all ease;
 }
 // to draw white circle
-.marker-pin::after {
-  content: '';
-  width: 24px; // 24
-  height: 24px; // 24
-  margin: 3px 0 0 3px;
-  background: #fff;
-  position: absolute;
-  border-radius: 50%;
-}
+// .marker-pin::after {
+//   content: '';
+//   width: 24px; // 24
+//   height: 24px; // 24
+//   margin: 3px 0 0 3px;
+//   background: #fff;
+//   position: absolute;
+//   border-radius: 50%;
+// }
 // to align icon
 .custom-div-icon i {
   position: absolute;
-  color: rgb(51, 51, 51);
+  color: #fff; //rgb(51, 51, 51);
   width: 22px;
   font-size: 22px;
   left: 0;
