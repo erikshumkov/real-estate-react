@@ -5,29 +5,31 @@ import { Link } from "react-router-dom";
 
 const MapPage = ({ data, location }) => {
 
-  const refs = data.reduce((acc, value) => {
+  // Get every house id and creates a reference to the list items
+  const listItemRefs = data.reduce((acc, value) => {
     acc[value.id] = React.createRef();
     return acc;
   }, {});
 
-  const refs2 = data.reduce((acc, value) => {
+  // Get every house id and creates a reference to the markers on the map
+  const mapItemRefs = data.reduce((acc, value) => {
     acc[value.id] = React.createRef();
     return acc;
   }, {});
 
   const getItemOnClick = id => {
     // Remove border from each item
-    for (const ref in refs) {
-      refs[ref].current.firstChild.style.border = "none";
+    for (const ref in listItemRefs) {
+      listItemRefs[ref].current.firstChild.style.border = "none";
     }
 
-    refs[id].current.scrollIntoView({
+    listItemRefs[id].current.scrollIntoView({
       behavior: "smooth",
       block: "center"
     });
 
     // Add border to selected item
-    const li = refs[id].current.firstChild;
+    const li = listItemRefs[id].current.firstChild;
     li.style.border = "2px solid black";
   }
 
@@ -36,16 +38,16 @@ const MapPage = ({ data, location }) => {
 
   // Add style to map markers on hover list item.
   const enterLi = (id) => {
-    let style = refs2[id].current.leafletElement._icon.firstChild.style;
-    initZindex = refs2[id].current.leafletElement._icon.style.zIndex;
-    refs2[id].current.leafletElement._icon.style.zIndex = 1000;
+    let style = mapItemRefs[id].current.leafletElement._icon.firstChild.style;
+    initZindex = mapItemRefs[id].current.leafletElement._icon.style.zIndex;
+    mapItemRefs[id].current.leafletElement._icon.style.zIndex = 1000;
     style.transform = "scale(1.2) rotate(-45deg)";
   }
 
   // Remove styles when you leave list item.
   const leaveLi = (id) => {
-    let style = refs2[id].current.leafletElement._icon.firstChild.style;
-    refs2[id].current.leafletElement._icon.style.zIndex = initZindex;
+    let style = mapItemRefs[id].current.leafletElement._icon.firstChild.style;
+    mapItemRefs[id].current.leafletElement._icon.style.zIndex = initZindex;
     style.transform = "scale(1) rotate(-45deg)";
   }
 
@@ -60,7 +62,7 @@ const MapPage = ({ data, location }) => {
               onMouseEnter={() => enterLi(home.id)}
               onMouseLeave={() => leaveLi(home.id)}
               key={home.id}
-              ref={refs[home.id]}
+              ref={listItemRefs[home.id]}
               className="home-link"
               to={`/item/${home.route.city}/${home.route.address}`}
             >
@@ -85,7 +87,7 @@ const MapPage = ({ data, location }) => {
 
         </div>
         <div className="map-container">
-          <MapRealEstate data={data} location={location} getItemOnClick={getItemOnClick} refs2={refs2} />
+          <MapRealEstate data={data} location={location} getItemOnClick={getItemOnClick} mapItemRefs={mapItemRefs} />
         </div>
       </div>
     </div>
