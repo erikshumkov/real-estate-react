@@ -50,6 +50,9 @@ const SearchResult = ({
             changePage={changePage}
             currentPage={currentPage}
           />
+          {/* <div className="button-div">
+            <div className="show-more">Visa fler resultat</div>
+          </div> */}
         </div>
       </main>
     </div>

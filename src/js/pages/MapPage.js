@@ -38,6 +38,7 @@ const MapPage = ({ data, location }) => {
 
   // Add style to map markers on hover list item.
   const enterLi = (id) => {
+    console.log(mapItemRefs[id].current.leafletElement._icon.firstChild)
     let style = mapItemRefs[id].current.leafletElement._icon.firstChild.style;
     initZindex = mapItemRefs[id].current.leafletElement._icon.style.zIndex;
     mapItemRefs[id].current.leafletElement._icon.style.zIndex = 1000;
@@ -50,7 +51,6 @@ const MapPage = ({ data, location }) => {
     mapItemRefs[id].current.leafletElement._icon.style.zIndex = initZindex;
     style.transform = "scale(1) rotate(-45deg)";
   }
-
 
   return (
     <div className="MapPage">
@@ -74,7 +74,7 @@ const MapPage = ({ data, location }) => {
                   <h4>{home.address}</h4>
                   <span>{home.city}</span>
                   <div className="text-info">
-                    <span className="info-type">Typ: {`${home.homeType.charAt(0).toUpperCase()}${home.homeType.substring(1)}`}</span>
+                    <span className="info-type">Typ: {home.type}</span>
                     <span className="info-size">Boarea: {home.sqft} kvm</span>
                     <span className="info-price">Pris: {home.price} kr</span>
                   </div>

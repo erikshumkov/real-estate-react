@@ -8,28 +8,15 @@ const MapRealEstate = ({ data, location, getItemOnClick, mapItemRefs }) => {
   // Check if the route / path is true
   let ifPath = path === "/karta/bostad";
 
-  // Custom Leaflet icon
-  const icon = L.divIcon({
-    className: "custom-div-icon",
-    html: "<div style='background-color:#1493bc;' class='marker-pin'></div><i class='material-icons'>home</i>",
-    iconSize: [30, 42],
-    iconAnchor: [15, 42]
-  })
+  const hoverMapMarker = (e) => {
+    let style = e.target._icon.firstChild.style;
+    style.transform = "scale(1.2) rotate(-45deg)";
+  }
 
-  // let initZindex;
-
-  // const hoverMapMarker = (e) => {
-  //   let style = e.target._icon.firstChild.style;
-  //   initZindex = e.target._icon.firstChild.style.zIndex;
-  //   e.target._icon.firstChild.style.zIndex = 1000;
-  //   style.transform = "scale(1.2) rotate(-45deg)";
-  // }
-
-  // const removeHoverStyles = (e) => {
-  //   let style = e.target._icon.firstChild.style;
-  //   e.target._icon.firstChild.style.zIndex = initZindex;
-  //   style.transform = "scale(1) rotate(-45deg)";
-  // }
+  const removeHoverStyles = (e) => {
+    let style = e.target._icon.firstChild.style;
+    style.transform = "scale(1) rotate(-45deg)";
+  }
 
   return (
     <Map center={ifPath ? [57.9, 14.7] : [data.coords.lat, data.coords.lng]} zoom={ifPath ? 6 : 16} scrollWheelZoom={false} >
@@ -45,16 +32,12 @@ const MapRealEstate = ({ data, location, getItemOnClick, mapItemRefs }) => {
             ref={mapItemRefs[home.id]}
             icon={L.divIcon({
               className: "custom-div-icon",
-              html: "<div style='background-color:#f9c006;' class='marker-pin'></div><i class='material-icons'>home</i>",
+              html: html[0],
               iconSize: [30, 42],
               iconAnchor: [15, 42]
             })}
-            onmouseover={(e) => {
-              e.target._icon.firstChild.style.transform = "scale(1.2) rotate(-45deg)";
-            }}
-            onmouseout={(e) => {
-              e.target._icon.firstChild.style.transform = "scale(1) rotate(-45deg)";
-            }}
+            onmouseover={(e) => hoverMapMarker(e)}
+            onmouseout={(e) => removeHoverStyles(e)}
             position={
               [
                 home.coords.lat,
@@ -69,16 +52,12 @@ const MapRealEstate = ({ data, location, getItemOnClick, mapItemRefs }) => {
             ref={mapItemRefs[home.id]}
             icon={L.divIcon({
               className: "custom-div-icon",
-              html: "<div style='background-color:#d00000;' class='marker-pin'></div><i class='material-icons'>apartment</i>",
+              html: html[1],
               iconSize: [30, 42],
               iconAnchor: [15, 42]
             })}
-            onmouseover={(e) => {
-              e.target._icon.firstChild.style.transform = "scale(1.2) rotate(-45deg)";
-            }}
-            onmouseout={(e) => {
-              e.target._icon.firstChild.style.transform = "scale(1) rotate(-45deg)";
-            }}
+            onmouseover={(e) => hoverMapMarker(e)}
+            onmouseout={(e) => removeHoverStyles(e)}
             position={
               [
                 home.coords.lat,
@@ -93,17 +72,12 @@ const MapRealEstate = ({ data, location, getItemOnClick, mapItemRefs }) => {
             ref={mapItemRefs[home.id]}
             icon={L.divIcon({
               className: "custom-div-icon",
-              html: "<div style='background-color:#257bc1;' class='marker-pin'></div><i class='material-icons'>home</i>",
+              html: html[2],
               iconSize: [30, 42],
               iconAnchor: [15, 42]
             })}
-            onmouseover={(e) => {
-              e.target._icon.firstChild.style.backgroundColor = "#257bc1";
-              e.target._icon.firstChild.style.transform = "scale(1.2) rotate(-45deg)";
-            }}
-            onmouseout={(e) => {
-              e.target._icon.firstChild.style.transform = "scale(1) rotate(-45deg)";
-            }}
+            onmouseover={(e) => hoverMapMarker(e)}
+            onmouseout={(e) => removeHoverStyles(e)}
             position={
               [
                 home.coords.lat,
@@ -115,7 +89,12 @@ const MapRealEstate = ({ data, location, getItemOnClick, mapItemRefs }) => {
         return null;
       })) : (
           <Marker
-            icon={icon}
+            icon={L.divIcon({
+              className: "custom-div-icon",
+              html: html[2],
+              iconSize: [30, 42],
+              iconAnchor: [15, 42]
+            })}
             position={[data.coords.lat, data.coords.lng]}
           />
         )}
@@ -123,5 +102,19 @@ const MapRealEstate = ({ data, location, getItemOnClick, mapItemRefs }) => {
   );
 
 }
+
+// Html for leaflet icons.
+const html = [
+
+  // 0
+  "<div style='background: linear-gradient(200deg, rgba(255,199,44,1) 0%, rgba(254,190,16,1) 50%, rgba(255,255,0,1) 100%);' class='marker-pin'></div><i class='material-icons'>home</i>",
+
+  // 1
+  "<div style='background: linear-gradient(294deg, rgba(210,18,46,1) 0%, rgba(250,128,114,1) 100%);' class='marker-pin'></div><i class='material-icons'>apartment</i>",
+
+  // 2
+  "<div style='background:linear-gradient(53deg, rgba(0,118,206,1) 0%, rgba(29,161,242,1) 100%);' class='marker-pin'></div><i class='material-icons'>home</i>"
+
+]
 
 export default MapRealEstate;

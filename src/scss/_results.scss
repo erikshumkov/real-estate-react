@@ -135,5 +135,16 @@
         }
       }
     }
+    .button-div {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+      .show-more {
+        cursor: pointer;
+        padding: 15px 20px;
+        background: rgb(20, 147, 188);
+        color: #fff;
+      }
+    }
   }
 }
