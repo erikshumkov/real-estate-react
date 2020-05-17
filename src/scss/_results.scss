@@ -24,8 +24,11 @@
         font-family: 'Roboto Slab', sans-serif;
       }
       .map {
+        cursor: pointer;
+        padding: 15px 20px;
+        background: rgb(20, 147, 188);
         a {
-          color: rgb(31, 31, 31);
+          color: #fff;
           padding: 16.5px 10px;
           font-size: 16px;
           text-align: center;
@@ -36,6 +39,9 @@
           span {
             margin-left: 8px;
           }
+        }
+        &:hover {
+          background: rgb(17, 135, 175);
         }
       }
     }
@@ -144,6 +150,9 @@
         padding: 15px 20px;
         background: rgb(20, 147, 188);
         color: #fff;
+        &:hover {
+          background: rgb(17, 135, 175);
+        }
       }
     }
   }

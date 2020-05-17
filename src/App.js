@@ -30,7 +30,7 @@ function App() {
   const [selectPrice, setSelectPrice] = useState('none');
   const [search, setSearch] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(9);
+  const [postsPerPage, setpostsPerPage] = useState(9);
 
   // In what order the results should be shown. Newest, Lowest price, etc.
   const handleSelect = event => {
@@ -129,10 +129,13 @@ function App() {
 
   useEffect(filterTheData, [setting, select, search, selectRooms, selectPrice]);
 
+  const addMoreItems = () => setpostsPerPage(postsPerPage + 9);
+
   // Get current posts
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
   const currentPosts = filteredData.slice(firstPostIndex, lastPostIndex);
+  console.log(currentPosts)
 
   // Change page
   const changePage = (pageNumber, totalPages) => {
@@ -166,7 +169,10 @@ function App() {
                     posts={currentPosts}
                     postsPerPage={postsPerPage}
                     changePage={changePage}
-                    currentPage={currentPage} />
+                    currentPage={currentPage}
+                    addMoreItems={addMoreItems}
+                  />
+
                 </div>
               )}
             />

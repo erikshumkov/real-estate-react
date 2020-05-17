@@ -2,7 +2,7 @@ import React from 'react'
 import FilterSection from '../layout/FilterSection';
 import SearchResult from '../layout/SearchResult';
 
-const Home = ({ handleCheckboxToggle, filter, searchString, setSearch, search, handleRooms, handlePrice, filteredData, handleSelect, posts, postsPerPage, changePage, currentPage }) => {
+const Home = ({ handleCheckboxToggle, filter, searchString, setSearch, search, handleRooms, handlePrice, filteredData, handleSelect, posts, postsPerPage, changePage, currentPage, addMoreItems }) => {
 
 
   return (
@@ -23,6 +23,7 @@ const Home = ({ handleCheckboxToggle, filter, searchString, setSearch, search, h
         postsPerPage={postsPerPage}
         changePage={changePage}
         currentPage={currentPage}
+        addMoreItems={addMoreItems}
       />
     </div>
   )

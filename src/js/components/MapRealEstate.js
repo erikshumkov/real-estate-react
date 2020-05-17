@@ -8,13 +8,24 @@ const MapRealEstate = ({ data, location, getItemOnClick, mapItemRefs }) => {
   // Check if the route / path is true
   let ifPath = path === "/karta/bostad";
 
+  // Get starter z-index from hoverMapMarker and save it.
+  let initZindex;
+
   const hoverMapMarker = (e) => {
     let style = e.target._icon.firstChild.style;
+    let styleParent = e.target._icon.style;
+    // Save initial z-index to variable.
+    initZindex = styleParent.zIndex;
+    // Set new z-index to bring map marker to the front.
+    styleParent.zIndex = 1000;
     style.transform = "scale(1.2) rotate(-45deg)";
   }
 
   const removeHoverStyles = (e) => {
+    let styleParent = e.target._icon.style;
     let style = e.target._icon.firstChild.style;
+    // Reset the z-index to it's original value to bring it to the back.
+    styleParent.zIndex = initZindex;
     style.transform = "scale(1) rotate(-45deg)";
   }
 

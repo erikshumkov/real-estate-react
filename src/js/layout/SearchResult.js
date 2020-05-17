@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from "react-router-dom";
 
 import Result from '../components/Result';
-import Pagination from '../components/Pagination';
 
 const SearchResult = ({
   filteredData,
@@ -10,7 +9,8 @@ const SearchResult = ({
   posts,
   postsPerPage,
   changePage,
-  currentPage
+  currentPage,
+  addMoreItems
 }) => {
   return (
     <div>
@@ -44,15 +44,21 @@ const SearchResult = ({
               return <Result key={index} data={data} />;
             })}
           </div>
-          <Pagination
+          {/* <Pagination
             postsPerPage={postsPerPage}
             totalPosts={filteredData.length}
             changePage={changePage}
             currentPage={currentPage}
-          />
-          {/* <div className="button-div">
-            <div className="show-more">Visa fler resultat</div>
-          </div> */}
+          /> */}
+          {console.log(filteredData.length, postsPerPage)}
+          {postsPerPage > filteredData.length ? null
+            : (
+              <div className="button-div" onClick={addMoreItems}>
+                <div className="show-more">Visa fler resultat</div>
+              </div>
+            )
+          }
+
         </div>
       </main>
     </div>
