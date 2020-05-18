@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/real-estate-react/static/css/main.7123d0d0.chunk.css",
-    "main.js": "/real-estate-react/static/js/main.b9526888.chunk.js",
-    "main.js.map": "/real-estate-react/static/js/main.b9526888.chunk.js.map",
+    "main.css": "/real-estate-react/static/css/main.8466adf4.chunk.css",
+    "main.js": "/real-estate-react/static/js/main.5b789837.chunk.js",
+    "main.js.map": "/real-estate-react/static/js/main.5b789837.chunk.js.map",
     "runtime-main.js": "/real-estate-react/static/js/runtime-main.b5ac8807.js",
     "runtime-main.js.map": "/real-estate-react/static/js/runtime-main.b5ac8807.js.map",
     "static/js/2.62ff161e.chunk.js": "/real-estate-react/static/js/2.62ff161e.chunk.js",
     "static/js/2.62ff161e.chunk.js.map": "/real-estate-react/static/js/2.62ff161e.chunk.js.map",
     "index.html": "/real-estate-react/index.html",
-    "precache-manifest.43911b51058a3486775bc443a40eb3f6.js": "/real-estate-react/precache-manifest.43911b51058a3486775bc443a40eb3f6.js",
+    "precache-manifest.eec314c67d53cfe23ef3015cf66d168f.js": "/real-estate-react/precache-manifest.eec314c67d53cfe23ef3015cf66d168f.js",
     "service-worker.js": "/real-estate-react/service-worker.js",
-    "static/css/main.7123d0d0.chunk.css.map": "/real-estate-react/static/css/main.7123d0d0.chunk.css.map",
+    "static/css/main.8466adf4.chunk.css.map": "/real-estate-react/static/css/main.8466adf4.chunk.css.map",
     "static/js/2.62ff161e.chunk.js.LICENSE": "/real-estate-react/static/js/2.62ff161e.chunk.js.LICENSE",
     "static/media/apartment.jpg": "/real-estate-react/static/media/apartment.b297e4f5.jpg",
     "static/media/apartment10.jpg": "/real-estate-react/static/media/apartment10.7d7f92f9.jpg",
@@ -37,7 +37,7 @@
   "entrypoints": [
     "static/js/runtime-main.b5ac8807.js",
     "static/js/2.62ff161e.chunk.js",
-    "static/css/main.7123d0d0.chunk.css",
-    "static/js/main.b9526888.chunk.js"
+    "static/css/main.8466adf4.chunk.css",
+    "static/js/main.5b789837.chunk.js"
   ]
 }

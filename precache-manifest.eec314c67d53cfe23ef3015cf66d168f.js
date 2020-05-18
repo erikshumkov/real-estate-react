@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "33a6325e436c82d747a17563e90bee6a",
+    "revision": "f260a50761d584aba120d6b0b46744d8",
     "url": "/real-estate-react/index.html"
   },
   {
-    "revision": "ebde2bbab37f617fd971",
-    "url": "/real-estate-react/static/css/main.7123d0d0.chunk.css"
+    "revision": "96e3b2c24c1e21c7379c",
+    "url": "/real-estate-react/static/css/main.8466adf4.chunk.css"
   },
   {
     "revision": "f7ee23bb36c905706d01",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/real-estate-react/static/js/2.62ff161e.chunk.js.LICENSE"
   },
   {
-    "revision": "ebde2bbab37f617fd971",
-    "url": "/real-estate-react/static/js/main.b9526888.chunk.js"
+    "revision": "96e3b2c24c1e21c7379c",
+    "url": "/real-estate-react/static/js/main.5b789837.chunk.js"
   },
   {
     "revision": "6a785479c5d867871220",
