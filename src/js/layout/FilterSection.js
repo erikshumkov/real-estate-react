@@ -51,7 +51,13 @@ const FilterSection = ({
 
           <FilterButtons filter={filter} handleCheckboxToggle={handleCheckboxToggle} />
 
-          <FilterSelect handlePrice={handlePrice} handleRooms={handleRooms} />
+          <div className="more-filter">
+            <input type="checkbox" id="toggle" className="hidden" />
+            <label htmlFor="toggle" className="extra-filter-toggle">Fler sökfilter</label>
+            <div className="extra-filter">
+              <FilterSelect handlePrice={handlePrice} handleRooms={handleRooms} />
+            </div>
+          </div>
         </div>
       </div>
     </div>
