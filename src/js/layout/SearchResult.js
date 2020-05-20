@@ -33,7 +33,7 @@ const SearchResult = ({
 
             <div className="map">
               <Link to="/karta/bostad">
-                <i className="fas fa-map-marked"></i>
+                <i className="fas fa-map-marker-alt"></i>
                 <span>Visa på karta</span>
               </Link>
             </div>
@@ -44,13 +44,6 @@ const SearchResult = ({
               return <Result key={index} data={data} />;
             })}
           </div>
-          {/* <Pagination
-            postsPerPage={postsPerPage}
-            totalPosts={filteredData.length}
-            changePage={changePage}
-            currentPage={currentPage}
-          /> */}
-          {console.log(filteredData.length, postsPerPage)}
           {postsPerPage > filteredData.length ? null
             : (
               <div className="button-div" onClick={addMoreItems}>

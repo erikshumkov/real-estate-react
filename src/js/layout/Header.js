@@ -7,12 +7,13 @@ const Header = () => {
       <header>
         <div className='wrapper'>
           <div className='logo'>
-            <Link to='/'>Fastighet</Link>
+            <Link to='/'>FastHem</Link>
           </div>
 
           <ul className='menu'>
-            <li>Sök bostad</li>
-            <li className="dummy-link">Sälja bostad</li>
+            <li>Till salu</li>
+            <li className="dummy-link">Sälja</li>
+            <li className="dummy-link">Köpa</li>
             <li className="dummy-link">Hitta mäklare</li>
           </ul>
         </div>

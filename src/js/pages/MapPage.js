@@ -38,7 +38,6 @@ const MapPage = ({ data, location }) => {
 
   // Add style to map markers on hover list item.
   const enterLi = (id) => {
-    console.log(mapItemRefs[id].current.leafletElement._icon.firstChild)
     let style = mapItemRefs[id].current.leafletElement._icon.firstChild.style;
     initZindex = mapItemRefs[id].current.leafletElement._icon.style.zIndex;
     mapItemRefs[id].current.leafletElement._icon.style.zIndex = 1000;

@@ -20,6 +20,7 @@
           box-shadow: 0px 7px 14px -10px rgba(0, 0, 0, 0.5);
         }
         .suggestions {
+          font-family: 'Roboto Slab', serif;
           position: absolute;
           list-style: none;
           top: 100%;
@@ -29,19 +30,23 @@
             background: #fff;
             padding: 15px 25px;
             &:hover {
-              background: rgb(148, 207, 255);
-              font-weight: bold;
+              background: rgb(20, 147, 188);
+              color: #fff;
               cursor: pointer;
             }
           }
         }
         .no-suggestions {
+          font-family: 'Roboto Slab', serif;
           position: absolute;
           top: 100%;
           width: 100%;
           z-index: 10;
           padding: 15px 25px;
           background: #fff;
+          user-select: none;
+          -webkit-user-select: none;
+          -ms-user-select: none;
         }
       }
     }

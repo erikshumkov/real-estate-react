@@ -135,7 +135,6 @@ function App() {
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
   const currentPosts = filteredData.slice(firstPostIndex, lastPostIndex);
-  console.log(currentPosts)
 
   // Change page
   const changePage = (pageNumber, totalPages) => {

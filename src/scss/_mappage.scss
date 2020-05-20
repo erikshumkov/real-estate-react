@@ -11,9 +11,6 @@
       .home-link {
         text-decoration: none;
         color: #000;
-        &:hover .home-item .img img {
-          transform: scale(1.05);
-        }
       }
       .home-item {
         display: grid;
