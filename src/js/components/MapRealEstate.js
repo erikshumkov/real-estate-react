@@ -2,7 +2,7 @@ import React from 'react'
 import L from "leaflet";
 import { Map, Marker, TileLayer } from "react-leaflet";
 
-const MapRealEstate = ({ data, location, getItemOnClick, mapItemRefs }) => {
+const MapRealEstate = ({ data, location, getItemOnClick, mapItemRefs, search }) => {
   // Get pathname
   let path = location.pathname;
   // Check if the route / path is true
@@ -10,6 +10,8 @@ const MapRealEstate = ({ data, location, getItemOnClick, mapItemRefs }) => {
 
   // Get starter z-index from hoverMapMarker and save it.
   let initZindex;
+
+  console.log(search);
 
   const hoverMapMarker = (e) => {
     let style = e.target._icon.firstChild.style;

@@ -1,3 +1,40 @@
+.result-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  max-width: 1475px;
+  padding: 25px 0;
+  margin: 0 auto;
+  select {
+    padding: 16.5px 10px;
+    width: 200px;
+    font-size: 1rem;
+    font-family: 'Roboto Slab', sans-serif;
+  }
+  .map {
+    font-family: 'Roboto Slab', sans-serif;
+    cursor: pointer;
+    padding: 15px 20px;
+    background: rgb(20, 147, 188);
+    a {
+      color: #fff;
+      padding: 19px 0px 16px;
+      font-size: 16px;
+      text-align: center;
+      text-decoration: none;
+      i {
+        font-size: 16px;
+      }
+      span {
+        margin-left: 15px;
+      }
+    }
+    &:hover {
+      background: rgb(17, 135, 175);
+    }
+  }
+}
+
 .MapPage {
   .grid {
     display: grid;
@@ -31,6 +68,7 @@
         }
         .text {
           padding: 15px 20px;
+          font-family: 'Roboto Slab', serif;
           h4 {
             font-size: 20px;
             margin-bottom: 5px;

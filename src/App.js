@@ -191,7 +191,17 @@ function App() {
               path="/karta/bostad"
               render={(props) => (
                 <div>
-                  <MapPage {...props} data={filteredData} />
+                  <MapPage
+                    {...props}
+                    data={filteredData}
+                    handleCheckboxToggle={handleCheckboxToggle}
+                    filter={setting}
+                    searchString={searchString}
+                    search={search}
+                    handleRooms={handleRooms}
+                    handlePrice={handlePrice}
+                    handleSelect={handleSelect}
+                  />
                 </div>
               )}
             />
