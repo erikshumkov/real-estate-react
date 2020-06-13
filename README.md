@@ -7,3 +7,5 @@ Added Leaflet.js (react-leaflet) for maps on each item.
 + Map page with markers of all items.
 + Map listens to filters.
 + Single item pages (house, appartment, etc).
+
+Not finished yet. Some more features to add.
