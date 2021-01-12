@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from "react-redux"
 
 const Pagination = ({ postsPerPage, totalPosts, changePage, currentPage }) => {
   const pageNumbers = [];
@@ -38,4 +39,4 @@ const Pagination = ({ postsPerPage, totalPosts, changePage, currentPage }) => {
   );
 };
 
-export default Pagination;
+export default connect()(Pagination);

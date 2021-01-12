@@ -1,22 +1,26 @@
-import React from 'react';
-import MapRealEstate from '../components/MapRealEstate';
-import { Link } from "react-router-dom";
-import FilterSection from '../layout/FilterSection';
+import React from 'react'
+import MapRealEstate from '../components/MapRealEstate'
+import PropTypes from 'prop-types'
+import { Link } from "react-router-dom"
+import { connect } from "react-redux"
+import { sortByNewest } from "../../actions/itemActions"
+
+import FilterSection from '../layout/FilterSection'
 
 
-const MapPage = ({ data, location, handleCheckboxToggle, filter, searchString, search, handleRooms, handlePrice, handleSelect }) => {
+const MapPage = ({ location, item: { filteredData, search }, sortByNewest }) => {
 
   // Get every house id and creates a reference to the list items
-  const listItemRefs = data.reduce((acc, value) => {
-    acc[value.id] = React.createRef();
-    return acc;
-  }, {});
+  const listItemRefs = filteredData.reduce((acc, value) => {
+    acc[value.id] = React.createRef()
+    return acc
+  }, {})
 
   // Get every house id and creates a reference to the markers on the map
-  const mapItemRefs = data.reduce((acc, value) => {
-    acc[value.id] = React.createRef();
-    return acc;
-  }, {});
+  const mapItemRefs = filteredData.reduce((acc, value) => {
+    acc[value.id] = React.createRef()
+    return acc
+  }, {})
 
   const getItemOnClick = id => {
     // listItemRefs, save indexes in array
@@ -79,20 +83,13 @@ const MapPage = ({ data, location, handleCheckboxToggle, filter, searchString, s
 
   return (
     <>
-      <FilterSection
-        handleCheckboxToggle={handleCheckboxToggle}
-        filter={filter}
-        searchString={searchString}
-        search={search}
-        handleRooms={handleRooms}
-        handlePrice={handlePrice}
-      />
+      <FilterSection />
       <div className="result-menu">
         <select
           name='select-filter'
           id='select-filter'
           defaultValue={'newest'}
-          onChange={e => handleSelect(e.target.value)}
+          onChange={e => sortByNewest(e.target.value)}
         >
           <option value='newest'>Nyast</option>
           <option value='lowest'>Lägst pris</option>
@@ -110,7 +107,7 @@ const MapPage = ({ data, location, handleCheckboxToggle, filter, searchString, s
         <div className="grid">
           <div className="items">
 
-            {data.map(home => (
+            {filteredData.map(home => (
               <Link
                 onMouseEnter={() => enterLi(home.id)}
                 onMouseLeave={() => leaveLi(home.id)}
@@ -136,11 +133,9 @@ const MapPage = ({ data, location, handleCheckboxToggle, filter, searchString, s
               </Link>
             ))}
 
-
-
           </div>
           <div className="map-container">
-            <MapRealEstate data={data} location={location} getItemOnClick={getItemOnClick} mapItemRefs={mapItemRefs} search={search} />
+            <MapRealEstate location={location} getItemOnClick={getItemOnClick} mapItemRefs={mapItemRefs} data={filteredData} />
           </div>
         </div>
       </div>
@@ -148,4 +143,13 @@ const MapPage = ({ data, location, handleCheckboxToggle, filter, searchString, s
   )
 }
 
-export default MapPage
+MapPage.propTypes = {
+  item: PropTypes.object.isRequired,
+  sortByNewest: PropTypes.func.isRequired
+}
+
+const mapStateToProps = state => ({
+  item: state.item
+})
+
+export default connect(mapStateToProps, { sortByNewest })(MapPage)

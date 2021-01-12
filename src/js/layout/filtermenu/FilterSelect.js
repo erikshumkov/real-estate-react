@@ -1,6 +1,18 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from "react-redux"
+import { filterByRooms, filterByPrice } from "../../../actions/itemActions"
 
-const FilterSelect = ({ handleRooms, handlePrice }) => {
+const FilterSelect = ({ filterByRooms, filterByPrice }) => {
+
+  const onChange = e => {
+    filterByRooms(e.target.value)
+  }
+
+  const priceHandler = e => {
+    filterByPrice(e.target.value)
+  }
+
   return (
     <div className='filter-menu-extra'>
       <div className='rooms'>
@@ -10,7 +22,7 @@ const FilterSelect = ({ handleRooms, handlePrice }) => {
             name='room'
             id='room'
             defaultValue={'all'}
-            onChange={e => handleRooms(e.target.value)}
+            onChange={onChange}
           >
             <option value='all'>Alla</option>
             <option value='1'>1 rum</option>
@@ -28,7 +40,7 @@ const FilterSelect = ({ handleRooms, handlePrice }) => {
             name='price'
             id='price'
             defaultValue={'none'}
-            onChange={e => handlePrice(e.target.value)}
+            onChange={priceHandler}
           >
             <option value='none'>Inget</option>
             <option value='250000'>250 000 kr</option>
@@ -47,4 +59,9 @@ const FilterSelect = ({ handleRooms, handlePrice }) => {
   )
 }
 
-export default FilterSelect
+FilterSelect.propTypes = {
+  filterByRooms: PropTypes.func.isRequired,
+  filterByPrice: PropTypes.func.isRequired
+}
+
+export default connect(null, { filterByRooms, filterByPrice })(FilterSelect)

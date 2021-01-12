@@ -1,110 +1,68 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react'
 import {
   HashRouter as Router,
   Switch,
   Route
-} from "react-router-dom";
+} from "react-router-dom"
+
+import { connect } from "react-redux"
+import { filteredItems } from "./actions/itemActions"
+import PropTypes from 'prop-types'
+
 
 // Data
-import listingsData from './js/data/listingsData';
+import listingsData from './js/data/listingsData'
 
 // Components
-import Header from './js/layout/Header';
-import Footer from './js/layout/Footer';
-import Home from './js/pages/Home';
-import Item from './js/pages/Item';
-import NoMatch404 from './js/pages/NoMatch404';
-import StartAtTop from "./js/components/StartAtTop";
-import MapPage from './js/pages/MapPage';
+import Header from './js/layout/Header'
+import Footer from './js/layout/Footer'
+import Home from './js/pages/Home'
+import Item from './js/pages/Item'
+import NoMatch404 from './js/pages/NoMatch404'
+import StartAtTop from "./js/components/StartAtTop"
+import MapPage from './js/pages/MapPage'
 
-function App() {
-  const [filteredData, setFilteredData] = useState([]);
-  const [setting, setSetting] = useState({
-    villa: false,
-    apartment: false,
-    radhus: false,
-    fritidshus: false
-  });
-  const [select, setSelect] = useState('newest');
-  const [selectRooms, setSelectRooms] = useState('all');
-  const [selectPrice, setSelectPrice] = useState('none');
-  const [search, setSearch] = useState('');
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setpostsPerPage] = useState(9);
-
-  // In what order the results should be shown. Newest, Lowest price, etc.
-  const handleSelect = event => {
-    setSelect(`${event}`);
-  };
-
-  // Listens for how many rooms select filter
-  const handleRooms = event => {
-    setSelectRooms(`${event}`);
-  };
-
-  // Listens for highest price select filter
-  const handlePrice = event => {
-    setSelectPrice(`${event}`);
-  };
-
-  // Listens for the buttons on the filter component
-  const handleCheckboxToggle = event => {
-    const name = event.target.name;
-    const value = event.target.checked;
-
-    setSetting({
-      ...setting,
-      [name]: value
-    });
-  };
-
-  // Search input
-  const searchString = string => {
-    setSearch(string);
-  };
+const App = ({
+  item: { price, rooms, sort, filteredData, search, postsShowing, current,
+    settings: { villa, apartment, radhus, fritidshus } },
+  item: { settings }, filteredItems
+}) => {
 
   const filterTheData = () => {
-    const { villa, apartment, radhus, fritidshus } = setting;
 
-    let newData = listingsData.map(item => {
-      return item;
-    });
+    let newData = listingsData.map(item => item)
 
     if (villa || apartment || radhus || fritidshus) {
       newData = newData.filter(item => {
-        if (item.homeType === 'villa' && villa) {
-          return item;
-        }
-        if (item.homeType === 'apartment' && apartment) {
-          return item;
-        }
-        if (item.homeType === 'radhus' && radhus) {
-          return item;
-        }
-        if (item.homeType === 'fritidshus' && fritidshus) {
-          return item;
-        }
-        return null;
+        if (item.homeType === 'villa' && villa) return item
+
+        if (item.homeType === 'apartment' && apartment) return item
+
+        if (item.homeType === 'radhus' && radhus) return item
+
+        if (item.homeType === 'fritidshus' && fritidshus) return item
+
+        return null
       });
     }
 
-    if (select === 'lowest') {
+    if (sort === 'lowest') {
       newData = newData.sort((a, b) => a.price - b.price);
     }
-    if (select === 'highest') {
+    if (sort === 'highest') {
       newData = newData.sort((a, b) => b.price - a.price);
     }
 
-    if (selectRooms !== 'all') {
+    if (rooms !== 'all') {
       newData = newData.filter(item => {
-        let roomsNumber = parseInt(selectRooms);
+        let roomsNumber = parseInt(rooms);
         return item.rooms >= roomsNumber ? item : null;
       });
     }
 
-    if (selectPrice !== 'none') {
+    if (price !== 'none') {
       newData = newData.filter(item => {
-        let highestPrice = parseInt(selectPrice);
+        let highestPrice = parseInt(price);
         return item.price <= highestPrice ? item : null;
       });
     }
@@ -124,24 +82,17 @@ function App() {
       }
     }
 
-    setFilteredData(newData);
-  };
+    filteredItems(newData)
+  }
 
-  useEffect(filterTheData, [setting, select, search, selectRooms, selectPrice]);
-
-  const addMoreItems = () => setpostsPerPage(postsPerPage + 9);
-
-  // Get current posts
-  const lastPostIndex = currentPage * postsPerPage;
-  const firstPostIndex = lastPostIndex - postsPerPage;
-  const currentPosts = filteredData.slice(firstPostIndex, lastPostIndex);
+  useEffect(filterTheData, [settings, sort, search, rooms, price])
 
   // Change page
-  const changePage = (pageNumber, totalPages) => {
-    if (pageNumber > 0 && pageNumber < totalPages) {
-      setCurrentPage(pageNumber);
-    }
-  };
+  // const changePage = (pageNumber, totalPages) => {
+  //   if (pageNumber > 0 && pageNumber < totalPages) {
+  //     setCurrentPage(pageNumber);
+  //   }
+  // };
 
   return (
     <Router>
@@ -156,22 +107,7 @@ function App() {
               path='/'
               render={() => (
                 <div>
-                  <Home handleCheckboxToggle={handleCheckboxToggle}
-                    filter={setting}
-                    searchString={searchString}
-                    setSearch={setSearch}
-                    search={search}
-                    handleRooms={handleRooms}
-                    handlePrice={handlePrice}
-                    filteredData={filteredData}
-                    handleSelect={handleSelect}
-                    posts={currentPosts}
-                    postsPerPage={postsPerPage}
-                    changePage={changePage}
-                    currentPage={currentPage}
-                    addMoreItems={addMoreItems}
-                  />
-
+                  <Home />
                 </div>
               )}
             />
@@ -193,14 +129,6 @@ function App() {
                 <div>
                   <MapPage
                     {...props}
-                    data={filteredData}
-                    handleCheckboxToggle={handleCheckboxToggle}
-                    filter={setting}
-                    searchString={searchString}
-                    search={search}
-                    handleRooms={handleRooms}
-                    handlePrice={handlePrice}
-                    handleSelect={handleSelect}
                   />
                 </div>
               )}
@@ -218,4 +146,13 @@ function App() {
   );
 }
 
-export default App;
+App.propTypes = {
+  item: PropTypes.object.isRequired,
+  filteredItems: PropTypes.func.isRequired
+}
+
+const mapStateToProps = state => ({
+  item: state.item
+})
+
+export default connect(mapStateToProps, { filteredItems })(App)

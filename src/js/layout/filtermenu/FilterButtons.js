@@ -1,46 +1,57 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from "react-redux"
+import { filterByHomeType } from "../../../actions/itemActions"
 
-const FilterButtons = ({ filter, handleCheckboxToggle }) => {
+const FilterButtons = ({ filterByHomeType, item: { settings: { villa, apartment, radhus, fritidshus } } }) => {
+
+  const checkboxToggle = e => {
+    filterByHomeType({
+      name: e.target.name,
+      value: e.target.checked
+    })
+  }
+
   return (
     <div className='filter-menu'>
       <div
         className='filter-box'
-        style={filter.villa ? filterTrue : filterFalse}
+        style={villa ? filterTrue : filterFalse}
       >
         <label htmlFor='villa'></label>
         <input
           type='checkbox'
           name='villa'
           id='villa'
-          onClick={handleCheckboxToggle}
+          onClick={checkboxToggle}
         />
         <i className='fas fa-home'></i>
               villa
             </div>
       <div
         className='filter-box'
-        style={filter.apartment ? filterTrue : filterFalse}
+        style={apartment ? filterTrue : filterFalse}
       >
         <label htmlFor='apartment'></label>
         <input
           type='checkbox'
           name='apartment'
           id='apartment'
-          onClick={handleCheckboxToggle}
+          onClick={checkboxToggle}
         />
         <i className='far fa-building'></i>
               lägenhet
             </div>
       <div
         className='filter-box'
-        style={filter.radhus ? filterTrue : filterFalse}
+        style={radhus ? filterTrue : filterFalse}
       >
         <label htmlFor='radhus'></label>
         <input
           type='checkbox'
           name='radhus'
           id='radhus'
-          onClick={handleCheckboxToggle}
+          onClick={checkboxToggle}
         />
         <i className='fas fa-home'></i>
         <i className='fas fa-home'></i>
@@ -48,14 +59,14 @@ const FilterButtons = ({ filter, handleCheckboxToggle }) => {
             </div>
       <div
         className='filter-box'
-        style={filter.fritidshus ? filterTrue : filterFalse}
+        style={fritidshus ? filterTrue : filterFalse}
       >
         <label htmlFor='fritidshus'></label>
         <input
           type='checkbox'
           name='fritidshus'
           id='fritidshus'
-          onClick={handleCheckboxToggle}
+          onClick={checkboxToggle}
         />
         <i className='fas fa-umbrella-beach'></i>
               fritidshus
@@ -73,4 +84,13 @@ const filterFalse = {
   background: '#eee'
 };
 
-export default FilterButtons
+FilterButtons.propTypes = {
+  item: PropTypes.object.isRequired,
+  filterByHomeType: PropTypes.func.isRequired
+}
+
+const mapStateToProps = state => ({
+  item: state.item
+})
+
+export default connect(mapStateToProps, { filterByHomeType })(FilterButtons)

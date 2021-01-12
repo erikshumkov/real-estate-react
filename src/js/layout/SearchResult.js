@@ -1,17 +1,26 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-
+import PropTypes from 'prop-types'
 import Result from '../components/Result';
+import { connect } from "react-redux"
+import { sortByNewest, addPosts } from "../../actions/itemActions"
 
 const SearchResult = ({
-  filteredData,
-  handleSelect,
-  posts,
-  postsPerPage,
-  changePage,
-  currentPage,
-  addMoreItems
+  addMoreItems,
+  sortByNewest,
+  addPosts,
+  filtered: { filteredData, postsShowing, currentPage }
 }) => {
+
+  const onChange = e => {
+    sortByNewest(e.target.value)
+  }
+
+  // Get current posts
+  const lastPostIndex = currentPage * postsShowing;
+  const firstPostIndex = lastPostIndex - postsShowing;
+  const currentPosts = filteredData.slice(firstPostIndex, lastPostIndex);
+
   return (
     <div>
       <main id='results'>
@@ -24,7 +33,7 @@ const SearchResult = ({
               name='select-filter'
               id='select-filter'
               defaultValue={'newest'}
-              onChange={e => handleSelect(e.target.value)}
+              onChange={onChange}
             >
               <option value='newest'>Nyast</option>
               <option value='lowest'>Lägst pris</option>
@@ -40,13 +49,13 @@ const SearchResult = ({
           </div>
 
           <div className='results-grid'>
-            {posts.map((data, index) => {
+            {currentPosts.map((data, index) => {
               return <Result key={index} data={data} />;
             })}
           </div>
-          {postsPerPage > filteredData.length ? null
+          {postsShowing > filteredData.length ? null
             : (
-              <div className="button-div" onClick={addMoreItems}>
+              <div className="button-div" onClick={() => addPosts(postsShowing + 9)}>
                 <div className="show-more">Visa fler resultat</div>
               </div>
             )
@@ -58,4 +67,14 @@ const SearchResult = ({
   );
 };
 
-export default SearchResult;
+SearchResult.propTypes = {
+  filtered: PropTypes.object.isRequired,
+  sortByNewest: PropTypes.func.isRequired,
+  addPosts: PropTypes.func.isRequired
+}
+
+const mapStateToProps = state => ({
+  filtered: state.item
+})
+
+export default connect(mapStateToProps, { sortByNewest, addPosts })(SearchResult)

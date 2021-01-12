@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom';
 
 const Result = ({ data }) => {
@@ -31,7 +32,11 @@ const Result = ({ data }) => {
         </div>
       </div>
     </Link>
-  );
-};
+  )
+}
+
+Result.propTypes = {
+  data: PropTypes.object.isRequired
+}
 
 export default Result;

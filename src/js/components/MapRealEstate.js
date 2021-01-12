@@ -1,8 +1,10 @@
 import React from 'react'
 import L from "leaflet";
+import PropTypes from 'prop-types'
 import { Map, Marker, TileLayer } from "react-leaflet";
+import { connect } from "react-redux"
 
-const MapRealEstate = ({ data, location, getItemOnClick, mapItemRefs, search }) => {
+const MapRealEstate = ({ item: { search }, data, location, getItemOnClick, mapItemRefs }) => {
   // Get pathname
   let path = location.pathname;
   // Check if the route / path is true
@@ -376,4 +378,14 @@ const html = [
 
 ]
 
-export default MapRealEstate;
+MapRealEstate.propTypes = {
+  item: PropTypes.object.isRequired,
+  getItemOnClick: PropTypes.func,
+  mapItemRefs: PropTypes.object
+}
+
+const mapStateToProps = state => ({
+  item: state.item
+})
+
+export default connect(mapStateToProps)(MapRealEstate)

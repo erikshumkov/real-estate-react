@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const Suggestions = ({ filtered, showSuggestions, search, onClick }) => {
   if (showSuggestions && search) {
@@ -24,6 +25,13 @@ const Suggestions = ({ filtered, showSuggestions, search, onClick }) => {
   } else {
     return null;
   }
+}
+
+Suggestions.propTypes = {
+  filtered: PropTypes.array.isRequired,
+  showSuggestions: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
+  search: PropTypes.string.isRequired
 }
 
 export default Suggestions
