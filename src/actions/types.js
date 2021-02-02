@@ -1,8 +1,0 @@
-export const FILTERED_ITEMS = "FILTERED_ITEMS"
-export const SEARCH_ITEMS = "SEARCH_ITEMS"
-export const FILTER_ITEMS = "FILTER_ITEMS"
-export const NEWEST_FILTER = "NEWEST_FILTER"
-export const HOMETYPE_FILTER = "HOMETYPE_FILTER"
-export const ROOMS_FILTER = "ROOMS_FILTER"
-export const PRICE_FILTER = "PRICE_FILTER"
-export const SHOW_MORE = "SHOW_MORE"
