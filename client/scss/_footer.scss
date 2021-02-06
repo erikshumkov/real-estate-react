@@ -85,6 +85,12 @@
       .footer-grid {
         grid-template-columns: 1fr;
         grid-gap: 25px;
+        .footer-contact,
+        .footer-social {
+          ul {
+            padding: 0;
+          }
+        }
       }
     }
   }

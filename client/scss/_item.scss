@@ -87,3 +87,48 @@
   width: 100%;
   height: 320px;
 }
+
+@media (max-width: 500px) {
+  #item {
+    .wrapper {
+      max-width: 95%;
+      .item-container {
+        .image {
+          height: 250px;
+        }
+        .item-text {
+          .item-text-header {
+            flex-direction: column;
+            .price {
+              margin-top: 5px;
+              h4 {
+                font-size: 21px;
+              }
+            }
+          }
+          .item-text-body {
+            grid-template-columns: 1fr;
+            .facts {
+              grid-row: 1 / 2;
+              table {
+                margin: 0;
+              }
+            }
+          }
+        }
+      }
+      .map-container {
+        .map-text {
+          h3 {
+            font-size: 20px;
+          }
+        }
+        .map {
+          .leaflet-container {
+            height: 490px;
+          }
+        }
+      }
+    }
+  }
+}

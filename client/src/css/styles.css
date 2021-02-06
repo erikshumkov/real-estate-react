@@ -46,6 +46,8 @@ header {
   header .menu li:first-of-type {
     color: #000;
     font-weight: 600; }
+  header .hamburger-menu {
+    display: none; }
 
 @media screen and (max-width: 700px) {
   header {
@@ -63,11 +65,19 @@ header {
 @media (max-width: 500px) {
   header {
     padding: 0; }
-    header .wrapper .logo {
-      padding: 20px 0;
-      margin: 0; }
+    header .wrapper {
+      flex-direction: row; }
+      header .wrapper .logo {
+        padding: 20px 0;
+        margin: 0; }
     header .menu {
-      display: none; } }
+      display: none; }
+    header .hamburger-menu {
+      border: 1px solid grey !important; }
+      header .hamburger-menu i {
+        margin-right: 5px; }
+      header .hamburger-menu span {
+        font-weight: 600; } }
 #filter-section {
   padding: 30px 0;
   background: #eee; }
@@ -220,7 +230,11 @@ header {
   #filter-section .wrapper .filter-menu-extra .rooms {
     flex-direction: column; }
     #filter-section .wrapper .filter-menu-extra .rooms .pricetag {
-      margin: 20px 0 0 0; } }
+      margin: 20px 0 0 0; }
+  #filter-section .wrapper .filter-menu .filter-box {
+    padding: 15px; }
+    #filter-section .wrapper .filter-menu .filter-box i {
+      margin-right: 5px; } }
 ::placeholder {
   color: #3d3d3d; }
 
@@ -349,9 +363,14 @@ header {
     #results .wrapper p {
       margin: 0 0 14px 8px; }
     #results .wrapper .result-menu select {
-      margin: 0 0 22px 8px; }
+      margin: 0 0 22px 8px;
+      padding: 12.5px 10px;
+      width: 170px; }
     #results .wrapper .result-menu .map {
-      display: none; }
+      padding: 14px;
+      margin-right: 6px; }
+      #results .wrapper .result-menu .map a {
+        font-size: 14px; }
     #results .wrapper .results-grid {
       grid-template-columns: 1fr;
       width: 96%;
@@ -420,6 +439,27 @@ header {
   width: 100%;
   height: 320px; }
 
+@media (max-width: 500px) {
+  #item .wrapper {
+    max-width: 95%; }
+    #item .wrapper .item-container .image {
+      height: 250px; }
+    #item .wrapper .item-container .item-text .item-text-header {
+      flex-direction: column; }
+      #item .wrapper .item-container .item-text .item-text-header .price {
+        margin-top: 5px; }
+        #item .wrapper .item-container .item-text .item-text-header .price h4 {
+          font-size: 21px; }
+    #item .wrapper .item-container .item-text .item-text-body {
+      grid-template-columns: 1fr; }
+      #item .wrapper .item-container .item-text .item-text-body .facts {
+        grid-row: 1 / 2; }
+        #item .wrapper .item-container .item-text .item-text-body .facts table {
+          margin: 0; }
+    #item .wrapper .map-container .map-text h3 {
+      font-size: 20px; }
+    #item .wrapper .map-container .map .leaflet-container {
+      height: 490px; } }
 .result-menu {
   display: flex;
   justify-content: space-between;
@@ -522,6 +562,53 @@ header {
   margin: 10px auto;
   text-align: center; }
 
+@media (max-width: 500px) {
+  .result-menu {
+    max-width: 100%; }
+    .result-menu select {
+      margin: 0 0 22px 8px;
+      padding: 12.5px 10px;
+      width: 170px; }
+    .result-menu .map {
+      padding: 14px;
+      margin-right: 6px; }
+      .result-menu .map a {
+        font-size: 14px; }
+
+  .MapPage .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    width: 100%; }
+    .MapPage .grid .map-container {
+      position: static;
+      grid-row: 1 / 2;
+      height: auto;
+      margin-bottom: 30px; }
+      .MapPage .grid .map-container .leaflet-container {
+        height: 700px; }
+    .MapPage .grid .items {
+      grid-row: 2 / 3;
+      padding: 0 8px;
+      margin-bottom: 150px; }
+      .MapPage .grid .items .home-item {
+        height: inherit;
+        grid-template-columns: 1fr; }
+        .MapPage .grid .items .home-item .text h4 {
+          font-size: 16px;
+          margin-bottom: 1px; }
+        .MapPage .grid .items .home-item .text span {
+          font-size: 14px; }
+        .MapPage .grid .items .home-item .text .text-info {
+          grid-template-columns: repeat(2, 1fr);
+          color: #000 !important; }
+          .MapPage .grid .items .home-item .text .text-info .info-type,
+          .MapPage .grid .items .home-item .text .text-info .info-size,
+          .MapPage .grid .items .home-item .text .text-info .info-price {
+            font-size: 14px; }
+        .MapPage .grid .items .home-item .img {
+          height: 142px; }
+          .MapPage .grid .items .home-item .img img {
+            object-fit: cover; } }
 #footer {
   padding: 3.5rem 0 6rem;
   background: #28364a; }
@@ -585,6 +672,9 @@ header {
     width: 93%; }
     #footer .wrapper .footer-grid {
       grid-template-columns: 1fr;
-      grid-gap: 25px; } }
+      grid-gap: 25px; }
+      #footer .wrapper .footer-grid .footer-contact ul,
+      #footer .wrapper .footer-grid .footer-social ul {
+        padding: 0; } }
 
 /*# sourceMappingURL=styles.css.map */

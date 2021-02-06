@@ -168,9 +168,15 @@
       .result-menu {
         select {
           margin: 0 0 22px 8px;
+          padding: 12.5px 10px;
+          width: 170px;
         }
         .map {
-          display: none;
+          padding: 14px;
+          margin-right: 6px;
+          a {
+            font-size: 14px;
+          }
         }
       }
       .results-grid {
