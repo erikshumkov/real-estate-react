@@ -158,6 +158,44 @@
   }
 }
 
+@media (max-width: 1120px) {
+  #results {
+    .wrapper {
+      width: 97%;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  #results {
+    .wrapper {
+      width: 97%;
+      p {
+        margin: 0 0 14px 8px;
+      }
+      .results-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  #results {
+    .wrapper {
+      .results-grid {
+        .result {
+          .info {
+            h2 {
+              font-size: 18px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 @media (max-width: 500px) {
   #results {
     .wrapper {

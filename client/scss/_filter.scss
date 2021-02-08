@@ -166,7 +166,15 @@
   }
 }
 
-@media screen and (max-width: 700px) {
+@media (max-width: 1120px) {
+  #filter-section {
+    .wrapper {
+      width: 98%;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
   #filter-section {
     padding: 20px 0;
     .wrapper {

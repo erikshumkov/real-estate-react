@@ -109,14 +109,11 @@ const App = ({
           <Header />
 
           <Switch>
-
             <Route
               exact
               path='/'
               render={() => (
-                <div>
-                  <Home />
-                </div>
+                <Home />
               )}
             />
 
@@ -124,9 +121,7 @@ const App = ({
               exact
               path='/item/:city/:address'
               render={(props) => (
-                <div>
-                  <Item {...props} listingsData={data} />
-                </div>
+                <Item {...props} listingsData={data} />
               )}
             />
 
@@ -134,11 +129,9 @@ const App = ({
               exact
               path="/karta/bostad"
               render={(props) => (
-                <div>
-                  <MapPage
-                    {...props}
-                  />
-                </div>
+                <MapPage
+                  {...props}
+                />
               )}
             />
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types'
 import Result from '../components/Result';
@@ -23,7 +23,7 @@ const SearchResult = ({
   const currentPosts = filteredData.slice(firstPostIndex, lastPostIndex);
 
   return (
-    <div>
+    <Fragment>
       <main id='results'>
         <div className='wrapper'>
           <p>
@@ -62,7 +62,7 @@ const SearchResult = ({
 
         </div>
       </main>
-    </div>
+    </Fragment>
   );
 };
 

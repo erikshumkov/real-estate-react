@@ -88,6 +88,22 @@
   height: 320px;
 }
 
+@media (max-width: 1120px) {
+  #item {
+    .wrapper {
+      max-width: 95%;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  #item {
+    .wrapper {
+      max-width: 95%;
+    }
+  }
+}
+
 @media (max-width: 500px) {
   #item {
     .wrapper {
