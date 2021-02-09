@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://shumkov:test123@shumkov.bwm9p.mongodb.net/realestate?retryWrites=true&w=majority",
+  "jwtSecret": "secrettoken"
+}
