@@ -19,7 +19,6 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0"
   },
-  "homepage": "https://erikshumkov.github.io/real-estate-react",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
