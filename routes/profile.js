@@ -31,45 +31,45 @@ router.get("/me", auth, async (req, res) => {
 // @route  POST api/profile/me
 // @desc   Create or update user profile
 // @access Private
-router.post("/me", auth, async (req, res) => {
+// router.post("/me", auth, async (req, res) => {
 
-  let profileObj = { ...req.body }
+//   let profileObj = { ...req.body }
 
-  profileObj.user = req.user.id
+//   profileObj.user = req.user.id
 
-  try {
-    let profile = await Profile.findOne({ user: req.user.id })
+//   try {
+//     let profile = await Profile.findOne({ user: req.user.id })
 
-    profile = new Profile(profileObj)
+//     profile = new Profile(profileObj)
 
-    await profile.save()
-    res.json(profile)
-  } catch (err) {
-    console.error(err.message)
-    res.status(500).send("Server Error")
-  }
-})
+//     await profile.save()
+//     res.json(profile)
+//   } catch (err) {
+//     console.error(err.message)
+//     res.status(500).send("Server Error")
+//   }
+// })
 
 // @route  DELETE api/profile/me/:id
 // @desc   Delete single profile item
 // @access Private
-router.delete("/me/:id", auth, async (req, res) => {
-  try {
-    const profile = await Profile.findOne({ user: req.user.id, _id: req.params.id })
+// router.delete("/me/:id", auth, async (req, res) => {
+//   try {
+//     const profile = await Profile.findOne({ user: req.user.id, _id: req.params.id })
 
 
-    if (!profile) {
-      return res.status(404).json({ msg: "Home not found" })
-    }
+//     if (!profile) {
+//       return res.status(404).json({ msg: "Home not found" })
+//     }
 
-    await profile.remove()
+//     await profile.remove()
 
-    res.json({ msg: "Home removed" })
-  } catch (err) {
-    console.error(err.message)
-    return res.status(500).send("Server Error")
-  }
-})
+//     res.json({ msg: "Home removed" })
+//   } catch (err) {
+//     console.error(err.message)
+//     return res.status(500).send("Server Error")
+//   }
+// })
 
 // @route  DELETE api/profile
 // @desc   Delete profile, user & posts
