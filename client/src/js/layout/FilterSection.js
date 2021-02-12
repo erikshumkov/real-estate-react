@@ -23,14 +23,7 @@ const FilterSection = ({
     setFiltered(filterCities)
     toggleSuggestions(true)
 
-    if (searchInput.length > 4 && filterCities.length > 0) {
-      searchItems(filterCities[0])
-      setFiltered([])
-      toggleSuggestions(false)
-    } else {
-      searchItems(searchInput)
-    }
-
+    searchItems(searchInput)
   }
 
   const onClick = e => {

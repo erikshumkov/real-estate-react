@@ -39,20 +39,28 @@ const MapRealEstate = ({ item: { search, cityData, loading }, data, location, ge
   }
 
   if (cityData.length > 0 && search.length > 2) {
-    cityObj = cityData.find(item => {
-      let city = item.city.toLowerCase()
-      let searchText = search.toLowerCase()
-      let matchStrings = city.match(searchText)
 
-      if (matchStrings !== null && searchText !== "") {
-        return true
+    cityData.filter(item => {
+
+      let text = search.toLowerCase()
+      let city = item.city.toLowerCase()
+      let match = city.match(text)
+
+      if (match !== null && match.length > 0) {
+        return cityObj = cityData.find(item => item.city.toLowerCase() === match.input)
       }
-      return { city: "" }
+      else if (cityObj === undefined) {
+        return cityObj = { city: "" }
+      }
+      else {
+        return { city: "" }
+      }
     })
+
   }
 
   if (cityData.length > 0) {
-    if (search.length > 3 && search === cityObj.city) return (
+    if (search.length > 2 && search === cityObj.city) return (
       <MapContainer
         center={ifPath ? [cityObj.lat, cityObj.lng] : [data.coords[0].lat, data.coords[0].lng]}
         zoom={ifPath ? cityObj.zoom : 16}
