@@ -12,7 +12,6 @@ connectMDB()
 // Init middleware
 app.use(cors())
 app.use(express.json({ extended: false }))
-// app.use(express.urlencoded({ extended: true }))
 
 // Routes
 app.use("/api/auth", require("./routes/auth"))
@@ -27,7 +26,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(root))
 
   app.get("*", (req, res) => {
-    res.sendFile("index.html", { root });
+    res.sendFile("index.html", { root })
   })
 } else {
   app.get("/", (req, res) => {
