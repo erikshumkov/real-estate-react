@@ -7,7 +7,7 @@ const jwt = require("jsonwebtoken")
 const auth = require("../middleware/auth")
 const User = require("../models/User")
 
-// @route  POST api/auth
+// @route  GET api/auth
 // @desc   Test route
 // @access Public
 router.get("/", auth, async (req, res) => {

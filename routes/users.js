@@ -3,7 +3,6 @@ const router = express.Router()
 const { check, validationResult } = require("express-validator")
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
-// const config = require("config")
 const User = require("../models/User")
 
 // @route  POST api/users
@@ -11,7 +10,6 @@ const User = require("../models/User")
 // @access Public
 router.post("/",
   [
-    check("name", "Name is required").notEmpty(),
     check("email", "Email is required").isEmail(),
     check("password", "Password is required, atleast 6 characters long").isLength({ min: 6 })
   ],
@@ -23,7 +21,7 @@ router.post("/",
       return res.status(400).json({ errors: errors.array() })
     }
 
-    const { name, email, password } = req.body
+    const { email, password } = req.body
 
     try {
       let user = await User.findOne({ email })
@@ -33,7 +31,6 @@ router.post("/",
       }
 
       user = new User({
-        name,
         email,
         password
       })

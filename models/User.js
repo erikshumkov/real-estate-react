@@ -20,11 +20,6 @@ const UserSchema = new Schema({
     required: [true, "Password required"],
     trim: true
   },
-  name: {
-    type: String,
-    required: true,
-    trim: true
-  },
   date: {
     type: Date,
     default: Date.now

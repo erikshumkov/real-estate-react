@@ -19,7 +19,7 @@ const initialState = {
   postsShowing: 9
 }
 
-export default (state = initialState, action) => {
+export default function (state = initialState, action) {
 
   const { type, payload } = action
 

@@ -1,0 +1,78 @@
+#login {
+  padding: 30px 20px 100px;
+  background: #fff;
+  height: 100vh;
+  font-family: 'Lato', sans-serif;
+  .container {
+    .login-box {
+      background: white;
+      padding: 30px 50px;
+      width: 50%;
+      margin: 0 auto;
+      border: 1px solid #ddd;
+
+      h3 {
+        margin-bottom: 4rem;
+        font-size: 35px;
+        font-weight: 500;
+      }
+      h3.skapa-konto {
+        margin-bottom: 3rem;
+      }
+      p {
+        font-weight: 400;
+        margin-bottom: 2rem;
+        font-size: 0.9rem;
+      }
+      form {
+        .input-details {
+          display: flex;
+          flex-direction: column;
+          input {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid lightgrey;
+            padding: 10px;
+            color: grey;
+          }
+          #email {
+            margin-bottom: 2rem;
+          }
+          #password2 {
+            margin-top: 2rem;
+          }
+        }
+        .remember-me {
+          display: flex;
+          align-items: baseline;
+          margin-bottom: 2rem;
+          label {
+            margin-left: 10px;
+            font-size: 14px;
+            font-weight: 300;
+            color: black;
+          }
+        }
+        .login {
+          text-transform: uppercase;
+          background: #1493bc;
+          border: none;
+          color: #fff;
+          padding: 15px 120px;
+          font-size: 0.7rem;
+          font-weight: bold;
+          margin: 0 0 1rem;
+          cursor: pointer;
+          &:hover {
+            background: #1187af;
+          }
+        }
+      }
+      a.forgot {
+        color: #000;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+    }
+  }
+}

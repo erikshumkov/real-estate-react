@@ -6,7 +6,9 @@ import {
 } from "react-router-dom"
 
 import { connect } from "react-redux"
+import setAuthToken from "./utils/setAuthToken"
 import { filteredItems, getHomeData, getCityData } from "./actions/itemActions"
+import { loadUser } from "./actions/auth"
 import PropTypes from 'prop-types'
 
 // Components
@@ -17,11 +19,18 @@ import Item from './js/pages/Item'
 import NoMatch404 from './js/pages/NoMatch404'
 import StartAtTop from "./js/components/StartAtTop"
 import MapPage from './js/pages/MapPage'
+import Login from './js/components/auth/Login'
+import Register from './js/components/auth/Register'
+import SavedHomes from './js/pages/SavedHomes'
+
+if (localStorage.token) {
+  setAuthToken(localStorage.token)
+}
 
 const App = ({
   item: { price, loading, rooms, data, cityData, sort, filteredData, search, postsShowing, current,
     settings: { villa, apartment, radhus, fritidshus } },
-  item: { settings }, filteredItems, getHomeData, getCityData
+  item: { settings }, filteredItems, getHomeData, getCityData, loadUser
 }) => {
 
   const filterTheData = () => {
@@ -95,6 +104,10 @@ const App = ({
     // eslint-disable-next-line
   }, [settings, sort, search, rooms, price, data, cityData])
 
+  useEffect(() => {
+    loadUser()
+  }, [loadUser])
+
   // Change page
   // const changePage = (pageNumber, totalPages) => {
   //   if (pageNumber > 0 && pageNumber < totalPages) {
@@ -135,6 +148,12 @@ const App = ({
               )}
             />
 
+            <Route exact path="/mina-sidor/logga-in" component={Login} />
+
+            <Route exact path="/mina-sidor/anvandare/ny" component={Register} />
+
+            <Route exact path="/mina-sidor/sparat" component={SavedHomes} />
+
             <Route path="*">
               <NoMatch404 />
             </Route>
@@ -151,11 +170,12 @@ App.propTypes = {
   item: PropTypes.object.isRequired,
   filteredItems: PropTypes.func.isRequired,
   getHomeData: PropTypes.func.isRequired,
-  getCityData: PropTypes.func.isRequired
+  getCityData: PropTypes.func.isRequired,
+  loadUser: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
   item: state.item
 })
 
-export default connect(mapStateToProps, { filteredItems, getCityData, getHomeData })(App)
+export default connect(mapStateToProps, { filteredItems, getCityData, getHomeData, loadUser })(App)

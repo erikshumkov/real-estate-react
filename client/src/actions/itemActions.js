@@ -3,8 +3,7 @@ import axios from "axios"
 
 export const getHomeData = () => async dispatch => {
   try {
-    const url = "/api/posts"
-    const res = await axios.get(url)
+    const res = await axios.get("/api/posts")
 
     dispatch({
       type: GET_DATA,
@@ -17,8 +16,7 @@ export const getHomeData = () => async dispatch => {
 
 export const getCityData = () => async dispatch => {
   try {
-    const url = "/api/cities"
-    const res = await axios.get(url)
+    const res = await axios.get("/api/cities")
 
     dispatch({
       type: GET_CITY_DATA,
