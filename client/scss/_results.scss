@@ -53,6 +53,16 @@
 
       .result-link {
         text-decoration: none;
+        z-index: 1;
+        position: relative;
+        button {
+          position: absolute;
+          z-index: 10;
+          top: 10px;
+          right: 10px;
+          width: 80px;
+          height: 30px;
+        }
       }
       .result {
         display: flex;
@@ -66,6 +76,10 @@
           height: 216px;
           width: 100%;
           .img {
+            // display: flex;
+            // flex-direction: row;
+            // justify-content: flex-end;
+            // padding: 10px;
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center center;
@@ -154,6 +168,15 @@
           background: rgb(17, 135, 175);
         }
       }
+    }
+  }
+}
+
+#results .saved-page {
+  .wrapper {
+    margin-top: 1rem;
+    h1 {
+      text-align: center;
     }
   }
 }

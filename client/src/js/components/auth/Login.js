@@ -26,7 +26,7 @@ const Login = ({ login, isAuthenticated }) => {
 
   if (isAuthenticated) {
     return (
-      <Redirect to="/" />
+      <Redirect to="/mina-sidor/sparat" />
     )
   }
 

@@ -289,7 +289,16 @@ header {
       grid-template-columns: 1fr 1fr 1fr;
       grid-gap: 20px; }
       #results .wrapper .results-grid .result-link {
-        text-decoration: none; }
+        text-decoration: none;
+        z-index: 1;
+        position: relative; }
+        #results .wrapper .results-grid .result-link button {
+          position: absolute;
+          z-index: 10;
+          top: 10px;
+          right: 10px;
+          width: 80px;
+          height: 30px; }
       #results .wrapper .results-grid .result {
         display: flex;
         flex-direction: column;
@@ -364,6 +373,11 @@ header {
         color: #fff; }
         #results .wrapper .button-div .show-more:hover {
           background: #1187af; }
+
+#results .saved-page .wrapper {
+  margin-top: 1rem; }
+  #results .saved-page .wrapper h1 {
+    text-align: center; }
 
 @media (max-width: 1120px) {
   #results .wrapper {

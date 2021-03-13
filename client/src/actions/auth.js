@@ -7,7 +7,9 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
-  GET_FAVORITES
+  GET_FAVORITES,
+  UPDATE_FAVORITES,
+  REMOVE_FAVORITE
 } from "../actions/types"
 
 import setAuthToken from "../utils/setAuthToken"
@@ -44,6 +46,58 @@ export const favoritesData = () => async dispatch => {
     })
   } catch (err) {
     console.error(err)
+  }
+}
+
+// Add home to favorites
+export const addFavorites = (data) => async dispatch => {
+
+  try {
+    const config = {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }
+
+    const res = await axios.post("/api/profile/me", data, config)
+
+    dispatch({
+      type: UPDATE_FAVORITES,
+      payload: res.data
+    })
+
+  } catch (err) {
+    const errors = err.response.data.errors
+
+    if (errors) {
+      console.error(errors)
+    }
+  }
+}
+
+// Remove home from favorites
+export const removeFavorite = (address) => async dispatch => {
+
+  try {
+    const config = {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }
+
+    const res = await axios.delete(`/api/profile/me/${address}`, config)
+
+    dispatch({
+      type: REMOVE_FAVORITE,
+      payload: res.data
+    })
+
+  } catch (err) {
+    const errors = err.response.data.errors
+
+    if (errors) {
+      console.error(errors)
+    }
   }
 }
 
@@ -110,13 +164,6 @@ export const login = ({ email, password }) => async dispatch => {
   }
 }
 
-export const logout = () => async dispatch => {
-  try {
-    dispatch({
-      type: LOGOUT
-    })
-
-  } catch (err) {
-    console.error(err.response.data.errors)
-  }
+export const logout = () => dispatch => {
+  dispatch({ type: LOGOUT })
 }

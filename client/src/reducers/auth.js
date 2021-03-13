@@ -3,10 +3,12 @@ import {
   REGISTER_FAIL,
   USER_LOADED,
   GET_FAVORITES,
+  UPDATE_FAVORITES,
   AUTH_ERROR,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
-  LOGOUT
+  LOGOUT,
+  REMOVE_FAVORITE
 } from "../actions/types"
 
 const initialState = {
@@ -35,6 +37,21 @@ export default function (state = initialState, action) {
         favorites: payload,
         loading: false
       }
+    case UPDATE_FAVORITES:
+      console.log(payload)
+      return {
+        ...state,
+        favorites: [
+          ...state.favorites, payload
+        ],
+        loading: false
+      }
+    case REMOVE_FAVORITE:
+      return {
+        ...state,
+        favorites: state.favorites.filter(item => item.address !== payload.profile.address),
+        loading: false
+      }
     case REGISTER_SUCCESS:
     case LOGIN_SUCCESS:
       localStorage.setItem("token", payload.token)
@@ -53,7 +70,9 @@ export default function (state = initialState, action) {
         ...state,
         token: null,
         isAuthenticated: false,
-        loading: false
+        loading: false,
+        user: null,
+        favorites: []
       }
     default:
       return state

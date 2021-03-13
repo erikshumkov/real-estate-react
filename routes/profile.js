@@ -10,7 +10,7 @@ const User = require("../models/User")
 // @access Private
 router.get("/me", auth, async (req, res) => {
   try {
-    const profile = await Profile.find({ user: req.user.id }).populate("user", ["name", "email"])
+    const profile = await Profile.find({ userId: req.user.id }).populate("user", ["name", "email"])
 
     if (profile === null) {
       const user = await User.findById(req.user.id).select("-password")
@@ -33,17 +33,23 @@ router.get("/me", auth, async (req, res) => {
 // @access Private
 router.post("/me", auth, async (req, res) => {
 
-  let profileObj = { ...req.body }
-
-  profileObj.user = req.user.id
+  const profileObj = {
+    userId: req.user.id,
+    address: req.body.homeAddress
+  }
 
   try {
-    let profile = await Profile.findOne({ user: req.user.id })
+    let profile = await Profile.findOne({ userId: profileObj.userId, address: req.body.homeAddress })
 
-    profile = new Profile(profileObj)
+    if (!profile) {
+      profile = new Profile(profileObj)
+      profile.save()
+      res.json(profile)
+    } else {
+      console.log("Home already exist in DB")
+      res.json({})
+    }
 
-    await profile.save()
-    res.json(profile)
   } catch (err) {
     console.error(err.message)
     res.status(500).send("Server Error")
@@ -53,9 +59,9 @@ router.post("/me", auth, async (req, res) => {
 // @route  DELETE api/profile/me/:id
 // @desc   Delete single profile item
 // @access Private
-router.delete("/me/:id", auth, async (req, res) => {
+router.delete("/me/:address", auth, async (req, res) => {
   try {
-    const profile = await Profile.findOne({ user: req.user.id, _id: req.params.id })
+    const profile = await Profile.findOne({ userId: req.user.id, address: req.params.address })
 
 
     if (!profile) {
@@ -64,7 +70,7 @@ router.delete("/me/:id", auth, async (req, res) => {
 
     await profile.remove()
 
-    res.json({ msg: "Home removed" })
+    res.json({ msg: "Home removed", profile })
   } catch (err) {
     console.error(err.message)
     return res.status(500).send("Server Error")

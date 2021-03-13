@@ -106,7 +106,7 @@ const App = ({
 
   useEffect(() => {
     loadUser()
-  }, [loadUser])
+  }, [])
 
   // Change page
   // const changePage = (pageNumber, totalPages) => {

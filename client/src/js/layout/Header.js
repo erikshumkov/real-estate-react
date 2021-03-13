@@ -29,7 +29,7 @@ const Header = ({ isAuthenticated, logout }) => {
               <ul className="menu">
                 {/* <Link to="/"><li>Sparade bostäder</li></Link> */}
                 <Link to="/mina-sidor/sparat"><li>Konto</li></Link>
-                <Link to="/" onClick={() => logout()}><li>Log out</li></Link>
+                <Link to="/" onClick={logout}><li>Log out</li></Link>
               </ul>
             )}
 
