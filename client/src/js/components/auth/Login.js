@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react'
-import { Redirect } from "react-router-dom"
+import { Link, Redirect } from "react-router-dom"
 import { connect } from "react-redux"
 import { login } from "../../../actions/auth"
 
@@ -68,9 +68,9 @@ const Login = ({ login, isAuthenticated }) => {
               <button className='login'>Logga in</button>
             </form>
 
-            <a href='/' className='forgot'>
-              Glömt lösenordet?
-            </a>
+            <Link to='/mina-sidor/anvandare/ny' className='forgot'>
+              Ingen användare? Skapa konto här
+            </Link>
           </div>
         </div>
       </div>

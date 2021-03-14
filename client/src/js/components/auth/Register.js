@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react'
-import { Redirect } from "react-router-dom"
+import { Link, Redirect } from "react-router-dom"
 import { connect } from "react-redux"
 import { register } from "../../../actions/auth"
 
@@ -79,6 +79,10 @@ const Register = ({ register, isAuthenticated }) => {
 
               <button className='login'>Skapa konto</button>
             </form>
+
+            <Link to='/mina-sidor/logga-in' className='forgot'>
+              Har du redan ett konto? Logga in här
+            </Link>
           </div>
         </div>
       </div>

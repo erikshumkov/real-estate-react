@@ -3,30 +3,13 @@ import axios from "axios"
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux"
-import { addFavorites } from "../../actions/auth"
 
 const Result = ({ data, addFavorites }) => {
 
   const { city, address } = data.route[0];
 
-  const addHomeToFavorites = (data) => {
-    console.log(data.address)
-    const homeAddress = data.address;
-
-    if (localStorage.token) {
-      addFavorites({ homeAddress })
-    } else {
-      console.error("You need to be logged in")
-      alert("You need to be logged in")
-    }
-
-  }
-
   return (
     <Link className="result-link" to={`/item/${city}/${address}`} >
-      <button onClick={() => {
-        addHomeToFavorites(data)
-      }}>Star</button>
       <div className='result'>
         <div className='image'>
           <div
@@ -58,4 +41,4 @@ Result.propTypes = {
   data: PropTypes.object.isRequired
 }
 
-export default connect(null, { addFavorites })(Result);
+export default connect(null)(Result);

@@ -7,6 +7,24 @@
     .item-container {
       max-width: 700px;
       margin: 0 auto;
+      .save, .removeFromSave {
+        margin-top: 10px;
+        cursor: pointer;
+        padding: 15px 20px;
+        background: rgb(20, 147, 188);
+        border: none;
+        color: #fff;
+        font-size: 16px;
+        text-align: center;
+        text-decoration: none;
+        i {
+          margin-right: 5px;
+          font-size: 16px;
+        }
+        &:hover {
+          background: rgb(17, 135, 175);
+        }
+      }
       .image {
         background: grey;
         width: 100%;

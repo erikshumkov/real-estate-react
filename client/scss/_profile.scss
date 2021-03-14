@@ -1,0 +1,17 @@
+.profile-links {
+  margin: 20px 0 0;
+  display: flex;
+  justify-content: center;
+  ul {
+    list-style: none;
+    a {
+      text-decoration: none;
+      color: #6f6f6f;
+      font-weight: 600;
+      &:hover {
+        color: #4e4e4c;
+        text-decoration: underline;
+      }
+    }
+  }
+}

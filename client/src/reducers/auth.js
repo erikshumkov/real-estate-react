@@ -38,12 +38,9 @@ export default function (state = initialState, action) {
         loading: false
       }
     case UPDATE_FAVORITES:
-      console.log(payload)
       return {
         ...state,
-        favorites: [
-          ...state.favorites, payload
-        ],
+        favorites: [...state.favorites, payload],
         loading: false
       }
     case REMOVE_FAVORITE:

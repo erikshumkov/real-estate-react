@@ -1,31 +1,42 @@
 import React, { Fragment, useEffect } from 'react'
-import { Link } from "react-router-dom"
+import { Link, Redirect } from "react-router-dom"
 import { connect } from "react-redux"
-import { favoritesData, removeFavorite } from "../../actions/auth"
+import { favoritesData, logout } from "../../actions/auth"
 import Spinner from '../layout/Spinner'
 
-const SavedHomes = ({ favoritesData, removeFavorite, auth: {
-  favorites, loading
+const SavedHomes = ({ favoritesData, logout, auth: {
+  favorites, loading, isAuthenticated
 }, item: { data } }) => {
 
   useEffect(() => {
-    favoritesData()
+
+    favorites.length === 0 && favoritesData()
+
   }, [favoritesData])
 
-  const removeItem = (address) => {
-    removeFavorite(address)
-  }
 
   const findFavorites = favorites.map(fav => data.find(item => fav.address === item.address))
+  console.log(findFavorites)
+
+  if (!isAuthenticated) {
+    return (
+      <Redirect to="/" />
+    )
+  }
 
   return (
     <Fragment>
-      <main id='results' className="saved-page">
+      <div className="profile-links">
+        <ul className="menu">
+          <Link to="/" onClick={logout}><li>Logga ut</li></Link>
+        </ul>
+      </div>
+      <main id='results' className="saved-page" style={favorites.length === 0 ? { marginBottom: "1000px", marginTop: "40px" } : { marginBottom: "200px", marginTop: "40px" }}>
         <div className='wrapper'>
-          <h1>Sparade bostäder</h1>
+          <h1 style={{ marginBottom: "14px" }}>Sparade bostäder</h1>
           <p>Du har <b>{favorites.length}</b> sparade bostäder.</p>
 
-          <div className='results-grid'>
+          <div className='results-grid' style={{ marginTop: "25px" }}>
             {loading && favorites.length === 0 ? <Spinner /> : findFavorites.map(item => {
               return (
                 <Link key={item.address} className="result-link" to={`/item/${item.route[0].city}/${item.route[0].address}`} >
@@ -37,7 +48,6 @@ const SavedHomes = ({ favoritesData, removeFavorite, auth: {
                           backgroundImage: `url(${item.image})`
                         }}
                       >
-                        <button onClick={() => removeItem(item.address)}>Unstar</button>
                       </div>
                     </div>
                     <div className='info'>
@@ -68,4 +78,4 @@ const mapStateToProps = state => ({
   item: state.item
 })
 
-export default connect(mapStateToProps, { favoritesData, removeFavorite })(SavedHomes)
+export default connect(mapStateToProps, { favoritesData, logout })(SavedHomes)

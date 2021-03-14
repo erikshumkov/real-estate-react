@@ -22,16 +22,16 @@ const Header = ({ isAuthenticated, logout }) => {
 
           {!isAuthenticated ? (
             <ul className="menu">
-              <Link to="/mina-sidor/logga-in"><li>Logga in</li></Link>
-              <Link to="/mina-sidor/anvandare/ny"><li>Skapa konto</li></Link>
+              <Link to="/mina-sidor/logga-in"><li>Mina sidor</li></Link>
+              {/* <Link to="/mina-sidor/anvandare/ny"><li>Skapa konto</li></Link> */}
             </ul>
           ) : (
-              <ul className="menu">
-                {/* <Link to="/"><li>Sparade bostäder</li></Link> */}
-                <Link to="/mina-sidor/sparat"><li>Konto</li></Link>
-                <Link to="/" onClick={logout}><li>Log out</li></Link>
-              </ul>
-            )}
+            <ul className="menu">
+              {/* <Link to="/"><li>Sparade bostäder</li></Link> */}
+              <Link to="/mina-sidor/sparat"><li>Mina sidor</li></Link>
+              {/* <Link to="/" onClick={logout}><li>Log out</li></Link> */}
+            </ul>
+          )}
 
 
           <button type="button" className="btn btn-light hamburger-menu">

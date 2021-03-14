@@ -188,7 +188,7 @@ header {
     #filter-section .wrapper .more-filter #toggle:checked ~ .extra-filter {
       height: 100px; }
     #filter-section .wrapper .more-filter #toggle:checked + label:after {
-      content: 'F├ñrre s├Âkfilter';
+      content: 'Färre sökfilter';
       position: absolute;
       top: 0;
       left: 0;
@@ -419,6 +419,21 @@ header {
     #item .wrapper .item-container {
       max-width: 700px;
       margin: 0 auto; }
+      #item .wrapper .item-container .save, #item .wrapper .item-container .removeFromSave {
+        margin-top: 10px;
+        cursor: pointer;
+        padding: 15px 20px;
+        background: #1493bc;
+        border: none;
+        color: #fff;
+        font-size: 16px;
+        text-align: center;
+        text-decoration: none; }
+        #item .wrapper .item-container .save i, #item .wrapper .item-container .removeFromSave i {
+          margin-right: 5px;
+          font-size: 16px; }
+        #item .wrapper .item-container .save:hover, #item .wrapper .item-container .removeFromSave:hover {
+          background: #1187af; }
       #item .wrapper .item-container .image {
         background: grey;
         width: 100%;
@@ -749,6 +764,20 @@ header {
       color: #000;
       font-size: 0.8rem;
       font-weight: 500; }
+
+.profile-links {
+  margin: 20px 0 0;
+  display: flex;
+  justify-content: center; }
+  .profile-links ul {
+    list-style: none; }
+    .profile-links ul a {
+      text-decoration: none;
+      color: #6f6f6f;
+      font-weight: 600; }
+      .profile-links ul a:hover {
+        color: #4e4e4c;
+        text-decoration: underline; }
 
 #footer {
   padding: 3.5rem 0 6rem;
