@@ -22,6 +22,7 @@ import MapPage from './js/pages/MapPage'
 import Login from './js/components/auth/Login'
 import Register from './js/components/auth/Register'
 import SavedHomes from './js/pages/SavedHomes'
+import PrivateRoute from "./js/components/routing/PrivateRoute"
 
 if (localStorage.token) {
   setAuthToken(localStorage.token)
@@ -106,7 +107,7 @@ const App = ({
 
   useEffect(() => {
     loadUser()
-  }, [])
+  }, [loadUser])
 
   // Change page
   // const changePage = (pageNumber, totalPages) => {
@@ -152,7 +153,7 @@ const App = ({
 
             <Route exact path="/mina-sidor/anvandare/ny" component={Register} />
 
-            <Route exact path="/mina-sidor/sparat" component={SavedHomes} />
+            <PrivateRoute exact path="/mina-sidor/sparat" component={SavedHomes} />
 
             <Route path="*">
               <NoMatch404 />

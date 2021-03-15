@@ -1,14 +1,14 @@
-import { PureComponent } from 'react';
-import { withRouter } from 'react-router-dom';
+import { PureComponent } from 'react'
+import { withRouter } from 'react-router-dom'
 
 class StartAtTop extends PureComponent {
-  componentDidMount = () => window.scrollTo(0, 0);
+  componentDidMount = () => window.scrollTo(0, 0)
 
   componentDidUpdate = prevProps => {
-    if (this.props.location !== prevProps.location) window.scrollTo(0, 0);
-  };
+    if (this.props.location !== prevProps.location) window.scrollTo(0, 0)
+  }
 
-  render = () => this.props.children;
+  render = () => this.props.children
 }
 
-export default withRouter(StartAtTop);
+export default withRouter(StartAtTop)

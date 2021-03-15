@@ -72,10 +72,10 @@ const Register = ({ register, isAuthenticated }) => {
               </div>
 
               <br />
-              <div className='remember-me'>
+              {/* <div className='remember-me'>
                 <input type='checkbox' name='remember' id='remember' />
                 <label htmlFor='remember'>Håll mig inloggad</label>
-              </div>
+              </div> */}
 
               <button className='login'>Skapa konto</button>
             </form>

@@ -1,6 +1,6 @@
 #login {
   padding: 30px 20px 100px;
-  background: #fff;
+  background: #eeeeee;
   height: 100vh;
   font-family: 'Lato', sans-serif;
   .container {
@@ -9,7 +9,6 @@
       padding: 30px 50px;
       width: 50%;
       margin: 0 auto;
-      border: 1px solid #ddd;
 
       h3 {
         margin-bottom: 4rem;
@@ -55,16 +54,16 @@
         }
         .login {
           text-transform: uppercase;
-          background: #1493bc;
+          background: #000000;
           border: none;
           color: #fff;
           padding: 15px 120px;
           font-size: 0.7rem;
           font-weight: bold;
-          margin: 0 0 1rem;
+          margin: 20px 0 1rem;
           cursor: pointer;
           &:hover {
-            background: #1187af;
+            background: rgb(41, 41, 41);
           }
         }
       }
@@ -73,6 +72,29 @@
         font-size: 0.8rem;
         font-weight: 500;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #login .container .login-box {
+    width: 100%;
+  }
+
+  .favorites {
+    .favorite-container {
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 50px;
+      max-width: 95%;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #login .container .login-box {
+    form .login {
+      width: 100%;
+      padding: 20px; 
     }
   }
 }

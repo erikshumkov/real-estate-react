@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from 'react'
-import { Link, Redirect } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { connect } from "react-redux"
 import { favoritesData, logout } from "../../actions/auth"
 import Spinner from '../layout/Spinner'
@@ -12,16 +12,14 @@ const SavedHomes = ({ favoritesData, logout, auth: {
 
     favorites.length === 0 && favoritesData()
 
-  }, [favoritesData])
+  }, [favorites, favoritesData])
 
+  // Get home(property) full object of key value pairs
+  let findFavorites = favorites.map(fav => data.find(item => fav.address === item.address))
 
-  const findFavorites = favorites.map(fav => data.find(item => fav.address === item.address))
-  console.log(findFavorites)
-
-  if (!isAuthenticated) {
-    return (
-      <Redirect to="/" />
-    )
+  // On page refresh check that findFavorites has correct properties inside of array
+  if (findFavorites.includes(undefined)) {
+    findFavorites = []
   }
 
   return (

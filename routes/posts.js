@@ -1,4 +1,5 @@
 const express = require("express")
+const auth = require("../middleware/auth")
 const Post = require("../models/Post")
 const router = express.Router()
 
@@ -18,7 +19,7 @@ router.get("/", async (req, res) => {
 // @route POST api/posts
 // @desc Add single home
 // @access Private
-router.post("/", async (req, res) => {
+router.post("/", auth, async (req, res) => {
   try {
     const post = new Post(req.body)
     await post.save()
@@ -31,9 +32,8 @@ router.post("/", async (req, res) => {
 })
 
 // @route REMOVE api/posts/remove/:id
-// @desc Remove single home
 // @access Private
-router.delete("/remove/:id", async (req, res) => {
+router.delete("/remove/:id", auth, async (req, res) => {
   try {
     const post = await Post.findById(req.params.id)
 

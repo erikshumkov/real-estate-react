@@ -188,7 +188,7 @@ header {
     #filter-section .wrapper .more-filter #toggle:checked ~ .extra-filter {
       height: 100px; }
     #filter-section .wrapper .more-filter #toggle:checked + label:after {
-      content: 'Färre sökfilter';
+      content: 'F├ñrre s├Âkfilter';
       position: absolute;
       top: 0;
       left: 0;
@@ -707,15 +707,14 @@ header {
             object-fit: cover; } }
 #login {
   padding: 30px 20px 100px;
-  background: #fff;
+  background: #eeeeee;
   height: 100vh;
   font-family: 'Lato', sans-serif; }
   #login .container .login-box {
     background: white;
     padding: 30px 50px;
     width: 50%;
-    margin: 0 auto;
-    border: 1px solid #ddd; }
+    margin: 0 auto; }
     #login .container .login-box h3 {
       margin-bottom: 4rem;
       font-size: 35px;
@@ -750,21 +749,33 @@ header {
         color: black; }
     #login .container .login-box form .login {
       text-transform: uppercase;
-      background: #1493bc;
+      background: #000000;
       border: none;
       color: #fff;
       padding: 15px 120px;
       font-size: 0.7rem;
       font-weight: bold;
-      margin: 0 0 1rem;
+      margin: 20px 0 1rem;
       cursor: pointer; }
       #login .container .login-box form .login:hover {
-        background: #1187af; }
+        background: #292929; }
     #login .container .login-box a.forgot {
       color: #000;
       font-size: 0.8rem;
       font-weight: 500; }
 
+@media screen and (max-width: 768px) {
+  #login .container .login-box {
+    width: 100%; }
+
+  .favorites .favorite-container {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 50px;
+    max-width: 95%; } }
+@media screen and (max-width: 500px) {
+  #login .container .login-box form .login {
+    width: 100%;
+    padding: 20px; } }
 .profile-links {
   margin: 20px 0 0;
   display: flex;

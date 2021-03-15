@@ -1,25 +1,33 @@
 import React, { useEffect } from 'react'
 import { connect } from "react-redux"
 import { getHomeData } from "../../actions/itemActions"
-import { addFavorites, removeFavorite } from "../../actions/auth"
+import { addFavorites, favoritesData, removeFavorite } from "../../actions/auth"
 
 import MapRealEstate from '../components/MapRealEstate'
 import Spinner from '../layout/Spinner'
-import { Redirect } from 'react-router'
 
-const Item = ({ listingsData, match, location, addFavorites, removeFavorite, item: { data, loading }, auth: { favorites } }) => {
+const Item = ({ listingsData, history, match, location, addFavorites, favoritesData, removeFavorite, item: { data, loading }, auth: { favorites, isAuthenticated } }) => {
 
   useEffect(() => {
     // If the data array in the state is empty get data from DB
     data.length === 0 && getHomeData()
 
-  }, [data])
+    favorites.length === 0 && favoritesData()
+
+  }, [data, favoritesData])
 
   const checkRoute = data.filter(
-    data => data.route[0].address === match.params.address
+    data => {
+      return data.route[0].address === match.params.address
+    }
   );
 
-  const home = checkRoute[0]
+  let home = checkRoute[0]
+
+  if (home === undefined) {
+    home = []
+    getHomeData()
+  }
 
   const addHomeToFavorites = (data) => {
     const homeAddress = data.address;
@@ -28,15 +36,23 @@ const Item = ({ listingsData, match, location, addFavorites, removeFavorite, ite
       addFavorites({ homeAddress })
     } else {
       console.error("You need to be logged in")
-      alert("You need to be logged in")
-      return (
-        <Redirect to="/mina-sidor/logga-in" />
-      )
+      alert("You need to be logged in to be able to do that")
+
+      // Redirect to log in page
+      history.push("/mina-sidor/logga-in")
     }
   }
 
   const removeHomeFromFavorites = (address) => {
-    removeFavorite(address)
+    if (isAuthenticated) {
+      removeFavorite(address)
+    } else {
+      console.error("You need to be logged in")
+      alert("You need to be logged in to be able to do that")
+
+      // Redirect to log in page
+      history.push("/mina-sidor/logga-in")
+    }
   }
 
   if (loading && data.length === 0) {
@@ -118,4 +134,4 @@ const mapStateToProps = state => ({
   auth: state.auth
 })
 
-export default connect(mapStateToProps, { getHomeData, addFavorites, removeFavorite })(Item)
+export default connect(mapStateToProps, { getHomeData, addFavorites, removeFavorite, favoritesData })(Item)

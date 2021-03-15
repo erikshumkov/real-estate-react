@@ -60,10 +60,10 @@ const Login = ({ login, isAuthenticated }) => {
               </div>
 
               <br />
-              <div className='remember-me'>
+              {/* <div className='remember-me'>
                 <input type='checkbox' name='remember' id='remember' />
                 <label htmlFor='remember'>Håll mig inloggad</label>
-              </div>
+              </div> */}
 
               <button className='login'>Logga in</button>
             </form>
