@@ -16,7 +16,7 @@ const initialState = {
   filteredData: [],
   loading: true,
   currentPage: 1,
-  postsShowing: 9
+  postsShowing: 18
 }
 
 export default function (state = initialState, action) {

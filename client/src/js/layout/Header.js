@@ -10,10 +10,13 @@ const Header = ({ isAuthenticated, logout }) => {
         <div className='wrapper'>
           <div className='logo'>
             <Link to='/'>FastHem</Link>
+            <ul className="menu mobile-menu">
+              <Link to="/mina-sidor/sparat"><li>Mina sidor</li></Link>
+            </ul>
           </div>
 
           <ul className='menu'>
-            <li>Till salu</li>
+            <Link to="/"><li className="selected">Till salu</li></Link>
             <li className="dummy-link">Sälja</li>
             <li className="dummy-link">Köpa</li>
             <li className="dummy-link">Hitta mäklare</li>
@@ -21,15 +24,12 @@ const Header = ({ isAuthenticated, logout }) => {
 
 
           {!isAuthenticated ? (
-            <ul className="menu">
+            <ul className="menu desktop">
               <Link to="/mina-sidor/logga-in"><li>Mina sidor</li></Link>
-              {/* <Link to="/mina-sidor/anvandare/ny"><li>Skapa konto</li></Link> */}
             </ul>
           ) : (
-            <ul className="menu">
-              {/* <Link to="/"><li>Sparade bostäder</li></Link> */}
+            <ul className="menu desktop">
               <Link to="/mina-sidor/sparat"><li>Mina sidor</li></Link>
-              {/* <Link to="/" onClick={logout}><li>Log out</li></Link> */}
             </ul>
           )}
 

@@ -54,7 +54,7 @@ const SearchResult = ({
           </div>
           {postsShowing > filteredData.length ? null
             : (
-              <div className="button-div" onClick={() => addPosts(postsShowing + 9)}>
+              <div className="button-div" onClick={() => addPosts(postsShowing + 18)}>
                 <div className="show-more">Visa fler resultat</div>
               </div>
             )

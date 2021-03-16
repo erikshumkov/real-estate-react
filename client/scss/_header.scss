@@ -18,6 +18,9 @@ header {
       font-size: 1.5rem;
       text-decoration: none;
     }
+    .menu.mobile-menu {
+      display: none;
+    }
   }
 
   .menu {
@@ -34,14 +37,14 @@ header {
         color: rgb(34, 34, 34);
       }
     }
+    .selected {
+      color: #000;
+      font-weight: 600;
+    }
     .dummy-link {
       &:hover {
         color: #000;
       }
-    }
-    li:first-of-type {
-      color: #000;
-      font-weight: 600;
     }
   }
   .hamburger-menu {
@@ -59,21 +62,39 @@ header {
 
 @media (max-width: 900px) {
   header {
-    padding: 0;
+    padding: 0 0 25px;
     .wrapper {
       flex-direction: column;
       max-width: 93%;
       .logo {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
         padding: 20px 0;
         margin: 0;
+        .menu.mobile-menu {
+          display: block;
+          margin-top: 0;
+          a li {
+            margin-right: 5px;
+            font-weight: 400;
+          }
+        }
       }
       .menu {
-        display: none;
+        display: block;
+        margin: 10px 40px 0 0;
         li {
           margin: 0 50px 0 0;
           font-size: 14px;
-          font-weight: 300;
+          font-weight: 400;
         }
+        li.dummy-link:last-of-type {
+          margin-right: 0;
+        }
+      }
+      .menu.desktop {
+        display: none;
       }
     }
   }
@@ -81,16 +102,17 @@ header {
 
 @media (max-width: 500px) {
   header {
-    padding: 0;
     .wrapper {
-      flex-direction: row;
       .logo {
         padding: 20px 0;
         margin: 0;
       }
-    }
-    .menu {
-      display: none;
+      .menu {
+        margin-right: 0;
+        li {
+          margin-right: 40px;
+        }
+      }
     }
     .hamburger-menu {
       border: 1px solid grey !important;

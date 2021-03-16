@@ -30,6 +30,8 @@ header {
       font-weight: 800;
       font-size: 1.5rem;
       text-decoration: none; }
+    header .logo .menu.mobile-menu {
+      display: none; }
   header .menu li {
     cursor: pointer;
     display: inline-block;
@@ -41,11 +43,11 @@ header {
     font-weight: 400; }
     header .menu li:hover {
       color: #222222; }
-  header .menu .dummy-link:hover {
-    color: #000; }
-  header .menu li:first-of-type {
+  header .menu .selected {
     color: #000;
     font-weight: 600; }
+  header .menu .dummy-link:hover {
+    color: #000; }
   header .hamburger-menu {
     display: none; }
 
@@ -54,35 +56,47 @@ header {
     width: 98%; } }
 @media (max-width: 900px) {
   header {
-    padding: 0; }
+    padding: 0 0 25px; }
     header .wrapper {
       flex-direction: column;
       max-width: 93%; }
       header .wrapper .logo {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
         padding: 20px 0;
         margin: 0; }
+        header .wrapper .logo .menu.mobile-menu {
+          display: block;
+          margin-top: 0; }
+          header .wrapper .logo .menu.mobile-menu a li {
+            margin-right: 5px;
+            font-weight: 400; }
       header .wrapper .menu {
-        display: none; }
+        display: block;
+        margin: 10px 40px 0 0; }
         header .wrapper .menu li {
           margin: 0 50px 0 0;
           font-size: 14px;
-          font-weight: 300; } }
+          font-weight: 400; }
+        header .wrapper .menu li.dummy-link:last-of-type {
+          margin-right: 0; }
+      header .wrapper .menu.desktop {
+        display: none; } }
 @media (max-width: 500px) {
-  header {
-    padding: 0; }
-    header .wrapper {
-      flex-direction: row; }
-      header .wrapper .logo {
-        padding: 20px 0;
-        margin: 0; }
-    header .menu {
-      display: none; }
-    header .hamburger-menu {
-      border: 1px solid grey !important; }
-      header .hamburger-menu i {
-        margin-right: 5px; }
-      header .hamburger-menu span {
-        font-weight: 600; } }
+  header .wrapper .logo {
+    padding: 20px 0;
+    margin: 0; }
+  header .wrapper .menu {
+    margin-right: 0; }
+    header .wrapper .menu li {
+      margin-right: 40px; }
+  header .hamburger-menu {
+    border: 1px solid grey !important; }
+    header .hamburger-menu i {
+      margin-right: 5px; }
+    header .hamburger-menu span {
+      font-weight: 600; } }
 #filter-section {
   padding: 30px 0;
   background: #eee; }
@@ -188,7 +202,7 @@ header {
     #filter-section .wrapper .more-filter #toggle:checked ~ .extra-filter {
       height: 100px; }
     #filter-section .wrapper .more-filter #toggle:checked + label:after {
-      content: 'F├ñrre s├Âkfilter';
+      content: 'Färre sökfilter';
       position: absolute;
       top: 0;
       left: 0;
